@@ -367,4 +367,195 @@
     @media (max-width: 900px){
       .hero{ grid-template-columns: 1fr; }
       nav{ justify-content: flex-start; }
-      .g
+      .grid{ grid-template-columns: 1fr; }
+      h1{ font-size: 34px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="avatar" aria-hidden="true"></div>
+        <div>
+          <strong>Sai Kandagattla</strong>
+          <span>Cork, Ireland</span>
+        </div>
+      </div>
+
+      <nav>
+        <a class="navlink" href="#projects">Projects</a>
+        <a class="navlink" href="#skills">Skills</a>
+        <a class="navlink" href="#certs">Certifications</a>
+        <a class="navlink" href="#contact">Contact</a>
+      </nav>
+    </div>
+
+    <div class="hero">
+      <div class="panel">
+        <div class="kicker"><span class="dot"></span> Data analytics portfolio</div>
+        <h1>Turning data into decisions.</h1>
+        <p class="sub">
+          MSc Business Analytics graduate with experience in Python, SQL, Tableau, Power BI, and Excel.
+          I build dashboards and predictive models that support marketing performance, customer understanding,
+          and sustainability focused insights.
+        </p>
+
+        <div class="chips">
+          <div class="chip">Python</div>
+          <div class="chip">SQL</div>
+          <div class="chip">Tableau</div>
+          <div class="chip">Power BI</div>
+          <div class="chip">Excel</div>
+          <div class="chip">Streamlit</div>
+        </div>
+
+        <div class="cta" id="contact">
+          <a class="btn primary" href="mailto:saivishnu.kan@gmail.com">Email</a>
+          <a class="btn" href="https://www.linkedin.com/in/sai-kandagattla/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="https://github.com/saivishnu-k" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="#projects">View projects</a>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="mini">
+          <h3>What you will find here</h3>
+          <p>Each project includes a short business problem, approach, tools used, outcomes, and links to code or dashboards.</p>
+        </div>
+
+        <div class="mini">
+          <h3>Highlights</h3>
+          <ul class="list">
+            <li class="li">
+              <span class="badge">Marketing</span>
+              <div>
+                <strong>Campaign and revenue analysis</strong>
+                <span>ROAS, CAC, CLV, variance checks, and performance reporting.</span>
+              </div>
+            </li>
+            <li class="li">
+              <span class="badge">Dashboards</span>
+              <div>
+                <strong>Interactive BI reporting</strong>
+                <span>Tableau and Power BI visuals focused on stakeholder clarity.</span>
+              </div>
+            </li>
+            <li class="li">
+              <span class="badge">ML</span>
+              <div>
+                <strong>Predictive modelling</strong>
+                <span>Feature engineering, model comparison, and practical evaluation.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" id="projects">
+      <h2>Featured projects</h2>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Coral Bleaching Prediction Dashboard</h3>
+          <p>Interactive dashboard analysing environmental drivers of coral bleaching and presenting prediction outputs for decision support.</p>
+          <div class="meta">
+            <span class="pill">Python</span><span class="pill">Streamlit</span><span class="pill">ML</span>
+          </div>
+          <div class="links">
+            <a href="#" title="Replace with your repo link">Repository</a>
+            <a href="#" title="Replace with your live app or demo link">Live demo</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Customer Analysis Dashboard</h3>
+          <p>Dashboard exploring demographics, financial behaviour, and regional patterns with segmentation filters for fast comparison.</p>
+          <div class="meta">
+            <span class="pill">Tableau</span><span class="pill">EDA</span><span class="pill">Segmentation</span>
+          </div>
+          <div class="links">
+            <a href="#" title="Replace with your repo or Tableau public link">Dashboard</a>
+            <a href="#" title="Replace with your repo link">Repository</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Dublin Housing Prediction</h3>
+          <p>Predictive analytics project exploring factors that influence housing affordability and purchase outcomes, with model comparison.</p>
+          <div class="meta">
+            <span class="pill">Python</span><span class="pill">Pandas</span><span class="pill">Scikit learn</span>
+          </div>
+          <div class="links">
+            <a href="#" title="Replace with your repo link">Repository</a>
+            <a href="#" title="Replace with a report or notebook link">Notebook</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <h2>Skills</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Analysis</h3>
+          <p>Data cleaning, validation, EDA, trend and variance analysis, stakeholder reporting.</p>
+          <div class="meta">
+            <span class="pill">EDA</span><span class="pill">KPI tracking</span><span class="pill">Controls</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Tools</h3>
+          <p>Python, SQL, Tableau, Power BI, Excel, Power Query, Google Analytics style reporting.</p>
+          <div class="meta">
+            <span class="pill">Python</span><span class="pill">SQL</span><span class="pill">Excel</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Business focus</h3>
+          <p>Marketing performance, customer behaviour, revenue analysis, and decision ready insights.</p>
+          <div class="meta">
+            <span class="pill">Marketing</span><span class="pill">Customer</span><span class="pill">Revenue</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="certs">
+      <h2>Certifications</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Tableau Intermediate</h3>
+          <p>Building interactive dashboards for trend identification and performance monitoring.</p>
+          <div class="meta"><span class="pill">Tableau</span></div>
+        </article>
+
+        <article class="card">
+          <h3>SQL Certification</h3>
+          <p>Querying for reporting and analysis using joins and advanced query patterns.</p>
+          <div class="meta"><span class="pill">SQL</span></div>
+        </article>
+
+        <article class="card">
+          <h3>Advanced Excel</h3>
+          <p>Data cleaning, analysis, visualisation, and automated reporting workflows.</p>
+          <div class="meta"><span class="pill">Excel</span><span class="pill">Power Query</span></div>
+        </article>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div>© <span id="y"></span> Sai Kandagattla</div>
+      <div>Site hosted on GitHub Pages</div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
