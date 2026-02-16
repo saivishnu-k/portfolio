@@ -8,21 +8,26 @@
 
   <style>
     :root{
-      --bg: #ffffff;
-      --panel: rgba(255,255,255,0.92);
-      --panelStrong: rgba(255,255,255,0.98);
-      --text: #111827;
-      --muted: #6b7280;
-      --soft: rgba(17,24,39,0.10);
+      --bg0: #05070f;
+      --bg1: #070a16;
+      --panel: rgba(255,255,255,0.08);
+      --panelStrong: rgba(255,255,255,0.12);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.68);
+      --soft: rgba(255,255,255,0.14);
 
-      --brand: #f97316;
-      --brand2: #fb923c;
-      --brandDark: #ea580c;
+      --brand: #ff7a18;
+      --brand2: #ffb86c;
+      --brand3: #ff4d9d;
 
-      --shadow: 0 18px 50px rgba(17,24,39,0.12);
+      --shadow: 0 24px 70px rgba(0,0,0,0.45);
+      --shadow2: 0 10px 35px rgba(0,0,0,0.35);
+
       --radius: 18px;
       --radius2: 26px;
-      --max: 1080px;
+      --max: 1120px;
+
+      --ring: 0 0 0 6px rgba(255,122,24,0.18);
     }
 
     *{ box-sizing: border-box; }
@@ -32,64 +37,53 @@
       margin: 0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color: var(--text);
-      background: var(--bg);
-      position: relative;
+      background:
+        radial-gradient(1200px 700px at 20% 15%, rgba(255,122,24,0.18), transparent 55%),
+        radial-gradient(900px 600px at 80% 20%, rgba(255,77,157,0.14), transparent 55%),
+        radial-gradient(900px 700px at 50% 95%, rgba(255,184,108,0.14), transparent 58%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
       overflow-x: hidden;
     }
 
-    /* Animated background blobs */
-    body::before,
-    body::after{
-      content: "";
+    /* Dynamic canvas background sits behind everything */
+    #fx{
       position: fixed;
-      inset: -20%;
+      inset: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      pointer-events: none;
+      opacity: 0.95;
+    }
+
+    /* Subtle vignette */
+    body::after{
+      content:"";
+      position: fixed;
+      inset: 0;
       z-index: 0;
       pointer-events: none;
-      filter: blur(55px);
-      opacity: 0.55;
-      transform: translate3d(0,0,0);
-    }
-
-    body::before{
       background:
-        radial-gradient(circle at 20% 25%, rgba(249,115,22,0.35), transparent 55%),
-        radial-gradient(circle at 80% 30%, rgba(251,146,60,0.25), transparent 55%),
-        radial-gradient(circle at 40% 85%, rgba(253,186,116,0.22), transparent 60%);
-      animation: blobFloatA 18s ease-in-out infinite;
-    }
-
-    body::after{
-      background:
-        radial-gradient(circle at 70% 75%, rgba(249,115,22,0.22), transparent 60%),
-        radial-gradient(circle at 15% 70%, rgba(253,186,116,0.20), transparent 55%),
-        radial-gradient(circle at 55% 15%, rgba(251,146,60,0.18), transparent 55%);
-      animation: blobFloatB 24s ease-in-out infinite;
-      opacity: 0.45;
-    }
-
-    @keyframes blobFloatA{
-      0%   { transform: translate(0px, 0px) scale(1); }
-      33%  { transform: translate(40px, -30px) scale(1.05); }
-      66%  { transform: translate(-30px, 35px) scale(0.98); }
-      100% { transform: translate(0px, 0px) scale(1); }
-    }
-
-    @keyframes blobFloatB{
-      0%   { transform: translate(0px, 0px) scale(1); }
-      33%  { transform: translate(-45px, 25px) scale(1.06); }
-      66%  { transform: translate(35px, -40px) scale(0.97); }
-      100% { transform: translate(0px, 0px) scale(1); }
+        radial-gradient(1200px 800px at 50% 35%, rgba(255,255,255,0.06), transparent 55%),
+        radial-gradient(1200px 900px at 50% 90%, rgba(0,0,0,0.45), transparent 55%),
+        radial-gradient(900px 700px at 50% 50%, transparent 45%, rgba(0,0,0,0.42));
+      mix-blend-mode: overlay;
     }
 
     a{ color: inherit; text-decoration: none; }
-    a:hover{ text-decoration: none; }
+    a:focus-visible{
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.25), var(--ring);
+      border-radius: 12px;
+    }
 
     .wrap{
       position: relative;
       z-index: 1;
       max-width: var(--max);
       margin: 0 auto;
-      padding: 28px 18px 56px;
+      padding: 28px 18px 64px;
     }
 
     .topbar{
@@ -98,28 +92,30 @@
       justify-content:space-between;
       gap:12px;
       padding: 10px 12px;
-      border: 1px solid var(--soft);
-      background: rgba(255,255,255,0.65);
-      border-radius: 14px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 10px 30px rgba(17,24,39,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(10,12,20,0.55);
+      border-radius: 16px;
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow2);
+      position: sticky;
+      top: 14px;
     }
 
     .brand{
       display:flex;
       align-items:center;
-      gap:10px;
-      min-width: 220px;
+      gap:12px;
+      min-width: 240px;
     }
 
     .avatar{
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid rgba(249,115,22,0.35);
-      box-shadow: 0 8px 20px rgba(17,24,39,0.12);
-      background: #fff;
+      border: 2px solid rgba(255,122,24,0.45);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+      background: rgba(255,255,255,0.08);
     }
 
     .brand strong{ display:block; font-size: 14px; letter-spacing: 0.2px; }
@@ -128,7 +124,7 @@
     nav{
       display:flex;
       align-items:center;
-      gap: 14px;
+      gap: 10px;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
@@ -136,43 +132,50 @@
     .navlink{
       font-size: 13px;
       color: var(--muted);
-      padding: 8px 10px;
-      border-radius: 12px;
+      padding: 9px 11px;
+      border-radius: 14px;
       border: 1px solid transparent;
+      background: rgba(255,255,255,0.04);
+      transition: 140ms ease;
     }
 
     .navlink:hover{
       color: var(--text);
-      border-color: rgba(249,115,22,0.20);
-      background: rgba(249,115,22,0.06);
+      border-color: rgba(255,122,24,0.26);
+      background: rgba(255,122,24,0.10);
+      transform: translateY(-1px);
     }
 
     .hero{
       margin-top: 22px;
       display:grid;
-      grid-template-columns: 1.25fr 0.75fr;
+      grid-template-columns: 1.2fr 0.8fr;
       gap: 16px;
+      align-items: start;
     }
 
     .panel{
-      border: 1px solid var(--soft);
-      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(255,255,255,0.14);
+      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.06));
       border-radius: var(--radius2);
       box-shadow: var(--shadow);
       padding: 22px;
       position: relative;
       overflow: hidden;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(14px);
     }
 
-    .panel:before{
+    .panel::before{
       content:"";
       position:absolute;
       inset: -2px;
-      background: radial-gradient(600px 240px at 20% 10%, rgba(249,115,22,0.16), transparent 55%),
-                  radial-gradient(520px 240px at 85% 20%, rgba(251,146,60,0.10), transparent 55%);
+      background:
+        radial-gradient(800px 280px at 18% 18%, rgba(255,122,24,0.22), transparent 55%),
+        radial-gradient(700px 320px at 85% 30%, rgba(255,77,157,0.18), transparent 55%),
+        radial-gradient(700px 360px at 35% 90%, rgba(255,184,108,0.16), transparent 58%);
       pointer-events:none;
-      opacity: 0.9;
+      opacity: 1;
+      filter: blur(10px);
     }
 
     .panel > * { position: relative; }
@@ -182,33 +185,36 @@
       align-items:center;
       gap:10px;
       font-size: 12px;
-      color: var(--brandDark);
       letter-spacing: 0.6px;
       text-transform: uppercase;
-      font-weight: 700;
+      font-weight: 800;
+      background: linear-gradient(90deg, rgba(255,122,24,0.95), rgba(255,184,108,0.95), rgba(255,77,157,0.85));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     .dot{
       width: 10px;
       height: 10px;
       border-radius: 999px;
-      background: var(--brand);
-      box-shadow: 0 0 0 6px rgba(249,115,22,0.15);
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,122,24,0.9));
+      box-shadow: 0 0 0 7px rgba(255,122,24,0.18), 0 10px 25px rgba(0,0,0,0.35);
     }
 
     h1{
       margin: 12px 0 10px;
-      font-size: 40px;
-      line-height: 1.1;
-      letter-spacing: -0.8px;
+      font-size: 42px;
+      line-height: 1.06;
+      letter-spacing: -1.0px;
     }
 
     .sub{
       margin: 0;
       color: var(--muted);
       font-size: 15px;
-      line-height: 1.55;
-      max-width: 58ch;
+      line-height: 1.6;
+      max-width: 62ch;
     }
 
     .chips{
@@ -220,12 +226,18 @@
 
     .chip{
       font-size: 12px;
-      color: var(--brandDark);
-      border: 1px solid rgba(249,115,22,0.28);
-      background: rgba(255,247,237,0.90);
+      color: rgba(255,255,255,0.86);
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
       padding: 8px 12px;
       border-radius: 999px;
-      font-weight: 700;
+      font-weight: 800;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.22);
+    }
+
+    .chip.hot{
+      border-color: rgba(255,122,24,0.35);
+      background: linear-gradient(135deg, rgba(255,122,24,0.20), rgba(255,77,157,0.14));
     }
 
     .cta{
@@ -243,26 +255,28 @@
       gap:10px;
       padding: 10px 14px;
       border-radius: 14px;
-      border: 1px solid var(--soft);
-      background: rgba(255,255,255,0.75);
-      color: var(--text);
-      font-weight: 700;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.92);
+      font-weight: 800;
       font-size: 13px;
-      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.22);
+      transition: 160ms ease;
     }
 
     .btn:hover{
-      background: rgba(255,255,255,0.95);
-      border-color: rgba(249,115,22,0.25);
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(255,122,24,0.30);
+      transform: translateY(-1px);
     }
 
     .btn.primary{
-      border-color: rgba(249,115,22,0.35);
-      background: linear-gradient(135deg, rgba(249,115,22,0.18), rgba(251,146,60,0.10));
+      border-color: rgba(255,122,24,0.40);
+      background: linear-gradient(135deg, rgba(255,122,24,0.22), rgba(255,77,157,0.14));
     }
 
     .btn.primary:hover{
-      background: linear-gradient(135deg, rgba(249,115,22,0.26), rgba(251,146,60,0.14));
+      background: linear-gradient(135deg, rgba(255,122,24,0.28), rgba(255,77,157,0.18));
     }
 
     .right{
@@ -271,13 +285,29 @@
     }
 
     .mini{
-      border: 1px solid var(--soft);
-      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
       border-radius: var(--radius);
       padding: 16px;
-      box-shadow: 0 10px 30px rgba(17,24,39,0.06);
-      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow2);
+      backdrop-filter: blur(14px);
+      position: relative;
+      overflow: hidden;
     }
+
+    .mini::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(650px 240px at 20% 20%, rgba(255,122,24,0.16), transparent 55%),
+        radial-gradient(600px 260px at 80% 30%, rgba(255,77,157,0.12), transparent 55%);
+      opacity: 0.9;
+      filter: blur(10px);
+      pointer-events:none;
+    }
+
+    .mini > *{ position: relative; }
 
     .mini h3{
       margin: 0 0 10px;
@@ -289,7 +319,7 @@
       margin: 0;
       color: var(--muted);
       font-size: 13px;
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     .list{
@@ -305,25 +335,27 @@
       align-items:flex-start;
       gap: 10px;
       padding: 10px 10px;
-      border-radius: 14px;
-      border: 1px solid transparent;
-      background: rgba(249,115,22,0.06);
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+      transition: 160ms ease;
     }
 
     .li:hover{
-      border-color: rgba(249,115,22,0.18);
-      background: rgba(249,115,22,0.09);
+      border-color: rgba(255,122,24,0.26);
+      background: rgba(255,122,24,0.10);
+      transform: translateY(-1px);
     }
 
     .badge{
       font-size: 11px;
       padding: 6px 9px;
       border-radius: 999px;
-      border: 1px solid rgba(249,115,22,0.26);
-      color: var(--brandDark);
-      background: rgba(255,247,237,0.92);
+      border: 1px solid rgba(255,122,24,0.35);
+      color: rgba(255,255,255,0.92);
+      background: rgba(255,122,24,0.14);
       white-space: nowrap;
-      font-weight: 800;
+      font-weight: 900;
     }
 
     .li strong{
@@ -336,18 +368,34 @@
       display:block;
       font-size: 12px;
       color: var(--muted);
-      line-height: 1.45;
+      line-height: 1.5;
     }
 
     .section{
       margin-top: 18px;
-      border: 1px solid var(--soft);
-      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
       border-radius: var(--radius2);
       padding: 18px;
-      box-shadow: 0 10px 30px rgba(17,24,39,0.06);
-      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow2);
+      backdrop-filter: blur(14px);
+      position: relative;
+      overflow: hidden;
     }
+
+    .section::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(900px 260px at 15% 20%, rgba(255,122,24,0.14), transparent 55%),
+        radial-gradient(900px 260px at 85% 30%, rgba(255,77,157,0.10), transparent 55%);
+      opacity: 0.9;
+      filter: blur(12px);
+      pointer-events:none;
+    }
+
+    .section > *{ position: relative; }
 
     .section h2{
       margin: 0 0 12px;
@@ -362,24 +410,43 @@
     }
 
     .card{
-      border: 1px solid var(--soft);
-      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
       border-radius: var(--radius);
       padding: 14px;
       display:flex;
       flex-direction: column;
       gap: 10px;
-      min-height: 170px;
-      box-shadow: 0 10px 30px rgba(17,24,39,0.06);
-      backdrop-filter: blur(10px);
+      min-height: 178px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.30);
+      backdrop-filter: blur(14px);
+      transition: 170ms ease;
+      position: relative;
+      overflow: hidden;
+      transform: translateZ(0);
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(450px 240px at 20% 25%, rgba(255,122,24,0.14), transparent 55%),
+        radial-gradient(450px 240px at 80% 35%, rgba(255,77,157,0.10), transparent 55%);
+      opacity: 0;
+      transition: 170ms ease;
+      pointer-events:none;
+      filter: blur(10px);
     }
 
     .card:hover{
-      border-color: rgba(249,115,22,0.18);
-      box-shadow: 0 16px 40px rgba(17,24,39,0.10);
-      transform: translateY(-1px);
-      transition: 160ms ease;
+      border-color: rgba(255,122,24,0.28);
+      box-shadow: 0 20px 55px rgba(0,0,0,0.40);
+      transform: translateY(-2px);
     }
+    .card:hover::before{ opacity: 1; }
+
+    .card > *{ position: relative; }
 
     .card h3{
       margin: 0;
@@ -391,7 +458,7 @@
       margin: 0;
       color: var(--muted);
       font-size: 13px;
-      line-height: 1.55;
+      line-height: 1.6;
       flex: 1;
     }
 
@@ -404,12 +471,17 @@
 
     .pill{
       font-size: 11px;
-      color: var(--brandDark);
-      border: 1px solid rgba(249,115,22,0.28);
-      background: rgba(255,247,237,0.92);
+      color: rgba(255,255,255,0.88);
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
       padding: 6px 10px;
       border-radius: 999px;
-      font-weight: 800;
+      font-weight: 900;
+    }
+
+    .pill.hot{
+      border-color: rgba(255,122,24,0.35);
+      background: rgba(255,122,24,0.14);
     }
 
     .links{
@@ -420,36 +492,59 @@
 
     .links a{
       font-size: 12px;
-      color: var(--brandDark);
+      color: rgba(255,255,255,0.92);
       padding: 8px 12px;
       border-radius: 12px;
-      border: 1px solid rgba(249,115,22,0.28);
-      background: rgba(255,255,255,0.95);
-      text-decoration: none;
-      font-weight: 800;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      font-weight: 900;
+      transition: 160ms ease;
     }
 
     .links a:hover{
-      background: rgba(255,247,237,0.92);
+      background: rgba(255,122,24,0.12);
+      border-color: rgba(255,122,24,0.28);
+      transform: translateY(-1px);
     }
 
     .footer{
       margin-top: 18px;
-      color: var(--muted);
+      color: rgba(255,255,255,0.62);
       text-align:center;
       font-size: 12px;
     }
 
-    @media (max-width: 900px){
+    .sr-only{
+      position:absolute;
+      width:1px;
+      height:1px;
+      padding:0;
+      margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      border:0;
+      white-space:nowrap;
+    }
+
+    @media (max-width: 920px){
       .hero{ grid-template-columns: 1fr; }
       nav{ justify-content: flex-start; }
       .grid{ grid-template-columns: 1fr; }
       h1{ font-size: 34px; }
+      .topbar{ position: relative; top: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      #fx{ display: none; }
+      .card, .btn, .navlink, .li{ transition: none; }
+      .card:hover, .btn:hover, .navlink:hover, .li:hover{ transform: none; }
     }
   </style>
 </head>
 
 <body>
+  <canvas id="fx" aria-hidden="true"></canvas>
+
   <div class="wrap">
     <div class="topbar">
       <div class="brand">
@@ -460,7 +555,7 @@
         </div>
       </div>
 
-      <nav>
+      <nav aria-label="Primary">
         <a class="navlink" href="#projects">Projects</a>
         <a class="navlink" href="#skills">Skills</a>
         <a class="navlink" href="#certs">Certifications</a>
@@ -477,8 +572,8 @@
           I build dashboards and predictive models that support marketing performance, customer understanding, and sustainability focused insights.
         </p>
 
-        <div class="chips">
-          <div class="chip">Python</div>
+        <div class="chips" aria-label="Key skills">
+          <div class="chip hot">Python</div>
           <div class="chip">SQL</div>
           <div class="chip">Tableau</div>
           <div class="chip">Power BI</div>
@@ -526,6 +621,15 @@
             </li>
           </ul>
         </div>
+
+        <div class="mini" aria-live="polite">
+          <h3>Now playing</h3>
+          <p><span id="fxMode">Cosmic flow</span><span class="sr-only">Background effect status</span></p>
+          <div class="cta" style="margin-top:12px">
+            <button class="btn" id="toggleFx" type="button">Toggle background</button>
+            <button class="btn" id="boostFx" type="button">Boost</button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -533,12 +637,11 @@
       <h2>Featured projects</h2>
 
       <div class="grid">
-
         <article class="card">
           <h3>Coral Bleaching Prediction Dashboard</h3>
           <p>Machine learning enabled early warning system using 50,000 plus climate and ocean records to predict coral bleaching risk and support conservation prioritisation.</p>
           <div class="meta">
-            <span class="pill">Python</span><span class="pill">Streamlit</span><span class="pill">Machine Learning</span>
+            <span class="pill hot">Python</span><span class="pill">Streamlit</span><span class="pill">Machine Learning</span>
           </div>
           <div class="links">
             <a href="https://github.com/saivishnu-k/coral-bleaching-dashboard" target="_blank" rel="noreferrer">Repository</a>
@@ -562,7 +665,7 @@
           <h3>Supply Chain Optimisation Model</h3>
           <p>Developed a multi objective optimisation model to reduce costs and emissions while addressing a 31 percent capacity shortfall and improving service levels.</p>
           <div class="meta">
-            <span class="pill">Python</span><span class="pill">MILP</span><span class="pill">Optimisation</span>
+            <span class="pill hot">Python</span><span class="pill">MILP</span><span class="pill">Optimisation</span>
           </div>
           <div class="links">
             <a href="#" title="Add your repository link">Repository</a>
@@ -586,7 +689,7 @@
           <h3>Dublin Housing Price and Purchase Prediction</h3>
           <p>Developed predictive models using 10,000 plus property records to analyse housing affordability drivers and purchase outcomes.</p>
           <div class="meta">
-            <span class="pill">Python</span><span class="pill">Feature Engineering</span><span class="pill">Machine Learning</span>
+            <span class="pill hot">Python</span><span class="pill">Feature Engineering</span><span class="pill">Machine Learning</span>
           </div>
           <div class="links">
             <a href="#" title="Add your repository link">Repository</a>
@@ -605,7 +708,6 @@
             <a href="#" title="Add your repository link">Repository</a>
           </div>
         </article>
-
       </div>
     </section>
 
@@ -624,7 +726,7 @@
           <h3>Tools</h3>
           <p>Python, SQL, Tableau, Power BI, Excel, Power Query, web analytics reporting.</p>
           <div class="meta">
-            <span class="pill">Python</span><span class="pill">SQL</span><span class="pill">Excel</span>
+            <span class="pill hot">Python</span><span class="pill">SQL</span><span class="pill">Excel</span>
           </div>
         </article>
 
@@ -668,7 +770,303 @@
   </div>
 
   <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+    // ====== Fancy dynamic background: "cosmic flow" particle field with soft trails ======
+    // High performance, respects prefers-reduced-motion, reacts to pointer, looks premium.
+
+    (function () {
+      const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const canvas = document.getElementById("fx");
+      const ctx = canvas.getContext("2d", { alpha: true, desynchronized: true });
+
+      const state = {
+        w: 0,
+        h: 0,
+        dpr: Math.min(window.devicePixelRatio || 1, 2),
+        running: !reduceMotion,
+        boost: false,
+        t: 0,
+        pointer: { x: 0, y: 0, vx: 0, vy: 0, active: false },
+        particles: [],
+        field: { scale: 1, speed: 1, curl: 1 },
+      };
+
+      const uiMode = document.getElementById("fxMode");
+      const btnToggle = document.getElementById("toggleFx");
+      const btnBoost = document.getElementById("boostFx");
+
+      function clamp(v, a, b){ return Math.max(a, Math.min(b, v)); }
+      function rand(min, max){ return min + Math.random() * (max - min); }
+
+      function resize(){
+        state.w = Math.max(1, window.innerWidth);
+        state.h = Math.max(1, window.innerHeight);
+        canvas.style.width = state.w + "px";
+        canvas.style.height = state.h + "px";
+        canvas.width = Math.floor(state.w * state.dpr);
+        canvas.height = Math.floor(state.h * state.dpr);
+        ctx.setTransform(state.dpr, 0, 0, state.dpr, 0, 0);
+      }
+
+      function pickPalette(){
+        return [
+          { r: 255, g: 122, b: 24 },  // orange
+          { r: 255, g: 184, b: 108 }, // peach
+          { r: 255, g: 77,  b: 157 }, // pink
+          { r: 120, g: 210, b: 255 }  // cool highlight
+        ];
+      }
+
+      const palette = pickPalette();
+
+      function createParticle(){
+        const edge = Math.floor(Math.random() * 4);
+        let x, y;
+
+        // Spawn from edges so motion feels like it flows through the page
+        if (edge === 0){ x = rand(0, state.w); y = -20; }
+        else if (edge === 1){ x = state.w + 20; y = rand(0, state.h); }
+        else if (edge === 2){ x = rand(0, state.w); y = state.h + 20; }
+        else { x = -20; y = rand(0, state.h); }
+
+        const col = palette[Math.floor(Math.random() * palette.length)];
+        const speed = rand(0.35, 1.15);
+        const size = rand(1.2, 2.6);
+
+        return {
+          x, y,
+          px: x, py: y,
+          vx: rand(-0.6, 0.6),
+          vy: rand(-0.6, 0.6),
+          a: rand(0.25, 0.65),
+          size,
+          speed,
+          col,
+          life: rand(220, 520),
+          age: 0
+        };
+      }
+
+      function initParticles(){
+        const base = Math.round(clamp((state.w * state.h) / 26000, 36, 130));
+        const count = state.boost ? Math.round(base * 1.6) : base;
+        state.particles = [];
+        for (let i = 0; i < count; i++) state.particles.push(createParticle());
+      }
+
+      function noise(x, y, t){
+        // Lightweight pseudo noise without heavy libs
+        const s = Math.sin(x * 0.012 + t) + Math.cos(y * 0.014 - t * 0.9);
+        const c = Math.cos(x * 0.008 - t * 0.7) - Math.sin(y * 0.010 + t * 1.1);
+        return s * 0.6 + c * 0.4;
+      }
+
+      function fieldAngle(x, y, t){
+        const n = noise(x, y, t);
+        const n2 = noise(x + 120.5, y - 80.2, t * 0.92);
+        // Curl like behaviour
+        return (n + n2) * Math.PI * 0.55 * state.field.curl;
+      }
+
+      function fade(){
+        // Soft trail fade, not a hard clear
+        ctx.globalCompositeOperation = "source-over";
+        ctx.fillStyle = "rgba(5, 7, 15, 0.08)";
+        ctx.fillRect(0, 0, state.w, state.h);
+      }
+
+      function glow(){
+        // Add gentle glow bloom layer
+        ctx.globalCompositeOperation = "lighter";
+        const g = ctx.createRadialGradient(
+          state.pointer.x, state.pointer.y, 0,
+          state.pointer.x, state.pointer.y, 260
+        );
+        g.addColorStop(0, "rgba(255, 122, 24, 0.10)");
+        g.addColorStop(0.5, "rgba(255, 77, 157, 0.06)");
+        g.addColorStop(1, "rgba(255, 255, 255, 0.00)");
+        ctx.fillStyle = g;
+        ctx.fillRect(0, 0, state.w, state.h);
+      }
+
+      function drawParticle(p){
+        const alpha = p.a * (1 - p.age / p.life);
+        if (alpha <= 0) return;
+
+        // Trail line
+        ctx.globalCompositeOperation = "lighter";
+        ctx.lineWidth = p.size;
+        ctx.lineCap = "round";
+        ctx.strokeStyle = `rgba(${p.col.r}, ${p.col.g}, ${p.col.b}, ${alpha})`;
+
+        ctx.beginPath();
+        ctx.moveTo(p.px, p.py);
+        ctx.lineTo(p.x, p.y);
+        ctx.stroke();
+
+        // Head dot
+        ctx.globalCompositeOperation = "screen";
+        ctx.fillStyle = `rgba(${p.col.r}, ${p.col.g}, ${p.col.b}, ${alpha * 0.9})`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size * 0.9, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      function updateParticle(p, t){
+        p.px = p.x;
+        p.py = p.y;
+
+        const angle = fieldAngle(p.x, p.y, t);
+        const fx = Math.cos(angle) * 0.55;
+        const fy = Math.sin(angle) * 0.55;
+
+        // Pointer influence
+        let mx = 0, my = 0;
+        if (state.pointer.active){
+          const dx = p.x - state.pointer.x;
+          const dy = p.y - state.pointer.y;
+          const dist2 = dx*dx + dy*dy;
+          const influence = 1 / clamp(dist2 / 18000, 1, 24);
+          // Swirl around pointer
+          mx = (-dy * 0.0016) * influence + state.pointer.vx * 0.02 * influence;
+          my = ( dx * 0.0016) * influence + state.pointer.vy * 0.02 * influence;
+        }
+
+        const speedMul = (state.boost ? 1.35 : 1.0) * state.field.speed;
+
+        p.vx = (p.vx * 0.90) + (fx + mx) * 0.75;
+        p.vy = (p.vy * 0.90) + (fy + my) * 0.75;
+
+        p.x += p.vx * p.speed * 2.0 * speedMul;
+        p.y += p.vy * p.speed * 2.0 * speedMul;
+
+        p.age += 1;
+
+        // Respawn if out or dead
+        const pad = 40;
+        if (p.age > p.life || p.x < -pad || p.x > state.w + pad || p.y < -pad || p.y > state.h + pad){
+          const np = createParticle();
+          p.x = np.x; p.y = np.y; p.px = np.x; p.py = np.y;
+          p.vx = np.vx; p.vy = np.vy;
+          p.a = np.a; p.size = np.size; p.speed = np.speed;
+          p.col = np.col; p.life = np.life; p.age = 0;
+        }
+      }
+
+      function tick(){
+        if (!state.running) return;
+
+        state.t += 0.0105;
+        const t = state.t;
+
+        fade();
+
+        // Subtle background sparkle
+        if (Math.random() < (state.boost ? 0.22 : 0.12)){
+          ctx.globalCompositeOperation = "screen";
+          ctx.fillStyle = "rgba(255,255,255,0.05)";
+          const x = rand(0, state.w), y = rand(0, state.h);
+          ctx.beginPath();
+          ctx.arc(x, y, rand(0.6, 1.4), 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        for (let i = 0; i < state.particles.length; i++){
+          const p = state.particles[i];
+          updateParticle(p, t);
+          drawParticle(p);
+        }
+
+        glow();
+
+        requestAnimationFrame(tick);
+      }
+
+      function setRunning(next){
+        state.running = next && !reduceMotion;
+        uiMode.textContent = state.running ? "Cosmic flow" : "Off";
+        if (state.running){
+          // Prime frame so it looks alive instantly
+          ctx.clearRect(0, 0, state.w, state.h);
+          initParticles();
+          tick();
+        } else {
+          ctx.clearRect(0, 0, state.w, state.h);
+        }
+      }
+
+      function setBoost(next){
+        state.boost = next;
+        btnBoost.textContent = state.boost ? "Normal" : "Boost";
+        initParticles();
+      }
+
+      function onPointerMove(e){
+        const x = e.clientX;
+        const y = e.clientY;
+
+        state.pointer.vx = (x - state.pointer.x);
+        state.pointer.vy = (y - state.pointer.y);
+
+        state.pointer.x = x;
+        state.pointer.y = y;
+        state.pointer.active = true;
+
+        // Clamp velocity for stability
+        state.pointer.vx = clamp(state.pointer.vx, -40, 40);
+        state.pointer.vy = clamp(state.pointer.vy, -40, 40);
+      }
+
+      function onPointerLeave(){
+        state.pointer.active = false;
+        state.pointer.vx = 0;
+        state.pointer.vy = 0;
+      }
+
+      // UI buttons
+      btnToggle.addEventListener("click", () => setRunning(!state.running));
+      btnBoost.addEventListener("click", () => setBoost(!state.boost));
+
+      // Smooth anchor scroll
+      document.addEventListener("click", (e) => {
+        const a = e.target.closest("a[href^='#']");
+        if (!a) return;
+        const id = a.getAttribute("href");
+        if (!id || id === "#") return;
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+        history.pushState(null, "", id);
+      });
+
+      // Year
+      document.getElementById("y").textContent = new Date().getFullYear();
+
+      // Setup
+      resize();
+      initParticles();
+
+      // Default pointer position for glow
+      state.pointer.x = Math.round(state.w * 0.55);
+      state.pointer.y = Math.round(state.h * 0.28);
+
+      window.addEventListener("resize", () => {
+        resize();
+        initParticles();
+      });
+
+      window.addEventListener("pointermove", onPointerMove, { passive: true });
+      window.addEventListener("pointerdown", onPointerMove, { passive: true });
+      window.addEventListener("pointerleave", onPointerLeave);
+
+      // Start animation if allowed
+      setRunning(true);
+
+      // If user prefers reduced motion, hide controls text and keep page fast
+      if (reduceMotion){
+        uiMode.textContent = "Reduced motion";
+      }
+    })();
   </script>
 </body>
 </html>
