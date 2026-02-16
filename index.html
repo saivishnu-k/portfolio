@@ -28,21 +28,13 @@
 
     *{ box-sizing: border-box; }
     html, body { height: 100%; }
-   body{
+ body{
   margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
   color: var(--text);
-
-  background: linear-gradient(
-    45deg,
-    #ffffff,
-    #fff7ed,
-    #fed7aa,
-    #ffffff
-  ) !important;
-
-  background-size: 1600% 1600% !important;
-  animation: gradientMove 1s ease infinite !important;
+  background: #ffffff;
+  position: relative;
+  overflow-x: hidden;
 };
 /* 
   background-size: 400% 400%;
@@ -416,10 +408,55 @@
   font-weight: 600;
 }
 
-@keyframes gradientMove{
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* Animated background blobs */
+body::before,
+body::after{
+  content: "";
+  position: fixed;
+  inset: -20%;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(55px);
+  opacity: 0.55;
+  transform: translate3d(0,0,0);
+}
+
+body::before{
+  background:
+    radial-gradient(circle at 20% 25%, rgba(249,115,22,0.35), transparent 55%),
+    radial-gradient(circle at 80% 30%, rgba(251,146,60,0.25), transparent 55%),
+    radial-gradient(circle at 40% 85%, rgba(253,186,116,0.22), transparent 60%);
+  animation: blobFloatA 18s ease-in-out infinite;
+}
+
+body::after{
+  background:
+    radial-gradient(circle at 70% 75%, rgba(249,115,22,0.22), transparent 60%),
+    radial-gradient(circle at 15% 70%, rgba(253,186,116,0.20), transparent 55%),
+    radial-gradient(circle at 55% 15%, rgba(251,146,60,0.18), transparent 55%);
+  animation: blobFloatB 24s ease-in-out infinite;
+  opacity: 0.45;
+}
+
+@keyframes blobFloatA{
+  0%   { transform: translate(0px, 0px) scale(1); }
+  33%  { transform: translate(40px, -30px) scale(1.05); }
+  66%  { transform: translate(-30px, 35px) scale(0.98); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes blobFloatB{
+  0%   { transform: translate(0px, 0px) scale(1); }
+  33%  { transform: translate(-45px, 25px) scale(1.06); }
+  66%  { transform: translate(35px, -40px) scale(0.97); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+/* Keep your content above the blobs */
+.wrap{
+  position: relative;
+  z-index: 1;
+}
   </style>
 </head>
 
