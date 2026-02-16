@@ -7,40 +7,86 @@
   <meta name="description" content="Portfolio of Sai Kandagattla. Analytics projects in Python, SQL, Tableau, Power BI and Excel." />
 
   <style>
+    :root{
+      --bg: #ffffff;
+      --panel: rgba(255,255,255,0.92);
+      --panelStrong: rgba(255,255,255,0.98);
+      --text: #111827;
+      --muted: #6b7280;
+      --soft: rgba(17,24,39,0.10);
 
-  :root{
-    --bg: #ffffff;
-    --panel: rgba(255,255,255,0.95);
-    --panel2: rgba(255,255,255,0.92);
-  
-    --text: #111827;
-    --muted: #6b7280;
-    --soft: rgba(17,24,39,0.10);
-  
-    --brand: #f97316;
-    --brand2: #fb923c;
-  
-    --shadow: 0 18px 50px rgba(17,24,39,0.12);
-    --radius: 18px;
-    --radius2: 26px;
-    --max: 1080px;
-     }
+      --brand: #f97316;
+      --brand2: #fb923c;
+      --brandDark: #ea580c;
+
+      --shadow: 0 18px 50px rgba(17,24,39,0.12);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1080px;
+    }
 
     *{ box-sizing: border-box; }
     html, body { height: 100%; }
- body{
-  margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-  color: var(--text);
-  background: #ffffff;
-  position: relative;
-  overflow-x: hidden;
-};
+
+    body{
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background: var(--bg);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Animated background blobs */
+    body::before,
+    body::after{
+      content: "";
+      position: fixed;
+      inset: -20%;
+      z-index: 0;
+      pointer-events: none;
+      filter: blur(55px);
+      opacity: 0.55;
+      transform: translate3d(0,0,0);
+    }
+
+    body::before{
+      background:
+        radial-gradient(circle at 20% 25%, rgba(249,115,22,0.35), transparent 55%),
+        radial-gradient(circle at 80% 30%, rgba(251,146,60,0.25), transparent 55%),
+        radial-gradient(circle at 40% 85%, rgba(253,186,116,0.22), transparent 60%);
+      animation: blobFloatA 18s ease-in-out infinite;
+    }
+
+    body::after{
+      background:
+        radial-gradient(circle at 70% 75%, rgba(249,115,22,0.22), transparent 60%),
+        radial-gradient(circle at 15% 70%, rgba(253,186,116,0.20), transparent 55%),
+        radial-gradient(circle at 55% 15%, rgba(251,146,60,0.18), transparent 55%);
+      animation: blobFloatB 24s ease-in-out infinite;
+      opacity: 0.45;
+    }
+
+    @keyframes blobFloatA{
+      0%   { transform: translate(0px, 0px) scale(1); }
+      33%  { transform: translate(40px, -30px) scale(1.05); }
+      66%  { transform: translate(-30px, 35px) scale(0.98); }
+      100% { transform: translate(0px, 0px) scale(1); }
+    }
+
+    @keyframes blobFloatB{
+      0%   { transform: translate(0px, 0px) scale(1); }
+      33%  { transform: translate(-45px, 25px) scale(1.06); }
+      66%  { transform: translate(35px, -40px) scale(0.97); }
+      100% { transform: translate(0px, 0px) scale(1); }
+    }
 
     a{ color: inherit; text-decoration: none; }
-    a:hover{ text-decoration: underline; }
+    a:hover{ text-decoration: none; }
 
     .wrap{
+      position: relative;
+      z-index: 1;
       max-width: var(--max);
       margin: 0 auto;
       padding: 28px 18px 56px;
@@ -53,9 +99,10 @@
       gap:12px;
       padding: 10px 12px;
       border: 1px solid var(--soft);
-      background: rgba(0,0,0,0.18);
+      background: rgba(255,255,255,0.65);
       border-radius: 14px;
       backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(17,24,39,0.06);
     }
 
     .brand{
@@ -70,8 +117,9 @@
       height: 42px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid rgba(139,211,255,0.5);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      border: 2px solid rgba(249,115,22,0.35);
+      box-shadow: 0 8px 20px rgba(17,24,39,0.12);
+      background: #fff;
     }
 
     .brand strong{ display:block; font-size: 14px; letter-spacing: 0.2px; }
@@ -92,11 +140,11 @@
       border-radius: 12px;
       border: 1px solid transparent;
     }
+
     .navlink:hover{
       color: var(--text);
-      border-color: var(--soft);
-      text-decoration: none;
-      background: rgba(255,255,255,0.04);
+      border-color: rgba(249,115,22,0.20);
+      background: rgba(249,115,22,0.06);
     }
 
     .hero{
@@ -108,20 +156,21 @@
 
     .panel{
       border: 1px solid var(--soft);
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
+      background: rgba(255,255,255,0.72);
       border-radius: var(--radius2);
       box-shadow: var(--shadow);
       padding: 22px;
       position: relative;
       overflow: hidden;
+      backdrop-filter: blur(10px);
     }
 
     .panel:before{
       content:"";
       position:absolute;
       inset: -2px;
-      background: radial-gradient(600px 240px at 20% 10%, rgba(139,211,255,0.22), transparent 55%),
-                  radial-gradient(520px 240px at 85% 20%, rgba(167,243,208,0.14), transparent 55%);
+      background: radial-gradient(600px 240px at 20% 10%, rgba(249,115,22,0.16), transparent 55%),
+                  radial-gradient(520px 240px at 85% 20%, rgba(251,146,60,0.10), transparent 55%);
       pointer-events:none;
       opacity: 0.9;
     }
@@ -133,17 +182,18 @@
       align-items:center;
       gap:10px;
       font-size: 12px;
-      color: var(--muted);
+      color: var(--brandDark);
       letter-spacing: 0.6px;
       text-transform: uppercase;
+      font-weight: 700;
     }
 
     .dot{
       width: 10px;
       height: 10px;
       border-radius: 999px;
-      background: var(--brand2);
-      box-shadow: 0 0 0 6px rgba(167,243,208,0.10);
+      background: var(--brand);
+      box-shadow: 0 0 0 6px rgba(249,115,22,0.15);
     }
 
     h1{
@@ -170,12 +220,12 @@
 
     .chip{
       font-size: 12px;
-      color: #ea580c;                 /* Dark orange text */
-      border: 1px solid #fdba74;      /* Light orange border */
-      background: #fff7ed;           /* Very light orange */
+      color: var(--brandDark);
+      border: 1px solid rgba(249,115,22,0.28);
+      background: rgba(255,247,237,0.90);
       padding: 8px 12px;
       border-radius: 999px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .cta{
@@ -194,21 +244,25 @@
       padding: 10px 14px;
       border-radius: 14px;
       border: 1px solid var(--soft);
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.75);
       color: var(--text);
-      font-weight: 600;
+      font-weight: 700;
       font-size: 13px;
       text-decoration: none;
     }
 
     .btn:hover{
-      background: rgba(255,255,255,0.07);
-      text-decoration:none;
+      background: rgba(255,255,255,0.95);
+      border-color: rgba(249,115,22,0.25);
     }
 
     .btn.primary{
-      border-color: rgba(139,211,255,0.35);
-      background: linear-gradient(135deg, rgba(139,211,255,0.20), rgba(167,243,208,0.14));
+      border-color: rgba(249,115,22,0.35);
+      background: linear-gradient(135deg, rgba(249,115,22,0.18), rgba(251,146,60,0.10));
+    }
+
+    .btn.primary:hover{
+      background: linear-gradient(135deg, rgba(249,115,22,0.26), rgba(251,146,60,0.14));
     }
 
     .right{
@@ -218,9 +272,11 @@
 
     .mini{
       border: 1px solid var(--soft);
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.72);
       border-radius: var(--radius);
       padding: 16px;
+      box-shadow: 0 10px 30px rgba(17,24,39,0.06);
+      backdrop-filter: blur(10px);
     }
 
     .mini h3{
@@ -251,22 +307,23 @@
       padding: 10px 10px;
       border-radius: 14px;
       border: 1px solid transparent;
-      background: rgba(0,0,0,0.12);
+      background: rgba(249,115,22,0.06);
     }
 
     .li:hover{
-      border-color: var(--soft);
-      background: rgba(255,255,255,0.04);
+      border-color: rgba(249,115,22,0.18);
+      background: rgba(249,115,22,0.09);
     }
 
     .badge{
       font-size: 11px;
       padding: 6px 9px;
       border-radius: 999px;
-      border: 1px solid var(--soft);
-      color: rgba(255,255,255,0.82);
-      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(249,115,22,0.26);
+      color: var(--brandDark);
+      background: rgba(255,247,237,0.92);
       white-space: nowrap;
+      font-weight: 800;
     }
 
     .li strong{
@@ -274,6 +331,7 @@
       font-size: 13px;
       margin-bottom: 2px;
     }
+
     .li span{
       display:block;
       font-size: 12px;
@@ -284,9 +342,11 @@
     .section{
       margin-top: 18px;
       border: 1px solid var(--soft);
-      background: rgba(255,255,255,0.03);
+      background: rgba(255,255,255,0.72);
       border-radius: var(--radius2);
       padding: 18px;
+      box-shadow: 0 10px 30px rgba(17,24,39,0.06);
+      backdrop-filter: blur(10px);
     }
 
     .section h2{
@@ -303,13 +363,22 @@
 
     .card{
       border: 1px solid var(--soft);
-      background: rgba(0,0,0,0.10);
+      background: rgba(255,255,255,0.78);
       border-radius: var(--radius);
       padding: 14px;
       display:flex;
       flex-direction: column;
       gap: 10px;
-      min-height: 160px;
+      min-height: 170px;
+      box-shadow: 0 10px 30px rgba(17,24,39,0.06);
+      backdrop-filter: blur(10px);
+    }
+
+    .card:hover{
+      border-color: rgba(249,115,22,0.18);
+      box-shadow: 0 16px 40px rgba(17,24,39,0.10);
+      transform: translateY(-1px);
+      transition: 160ms ease;
     }
 
     .card h3{
@@ -335,12 +404,12 @@
 
     .pill{
       font-size: 11px;
-      color: #ea580c;
-      border: 1px solid #fdba74;
-      background: #fff7ed;
+      color: var(--brandDark);
+      border: 1px solid rgba(249,115,22,0.28);
+      background: rgba(255,247,237,0.92);
       padding: 6px 10px;
       border-radius: 999px;
-      font-weight: 600;
+      font-weight: 800;
     }
 
     .links{
@@ -350,17 +419,18 @@
     }
 
     .links a{
-        font-size: 12px;
-        color: #ea580c;
-        padding: 8px 12px;
-        border-radius: 12px;
-        border: 1px solid #fdba74;
-        background: #ffffff;
-        text-decoration: none;
-        font-weight: 600;
+      font-size: 12px;
+      color: var(--brandDark);
+      padding: 8px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(249,115,22,0.28);
+      background: rgba(255,255,255,0.95);
+      text-decoration: none;
+      font-weight: 800;
     }
+
     .links a:hover{
-       background: #fff7ed;
+      background: rgba(255,247,237,0.92);
     }
 
     .footer{
@@ -376,83 +446,6 @@
       .grid{ grid-template-columns: 1fr; }
       h1{ font-size: 34px; }
     }
-
-    .panel:before{
-    content:"";
-    position:absolute;
-    inset: -2px;
-    background: radial-gradient(600px 240px at 20% 10%, rgba(249,115,22,0.16), transparent 55%),
-                radial-gradient(520px 240px at 85% 20%, rgba(251,146,60,0.10), transparent 55%);
-    pointer-events:none;
-    opacity: 0.9;
-  links a{
-  color: #ea580c !important;
-  background: #ffffff !important;
-  border: 1px solid #fdba74 !important;
-  font-weight: 600;
-}
-
-.links a:hover{
-  background: #fff7ed !important;
-}
-
-.chip,
-.pill{
-  color: #ea580c !important;
-  background: #fff7ed !important;
-  border: 1px solid #fdba74 !important;
-  font-weight: 600;
-}
-
-/* Animated background blobs */
-body::before,
-body::after{
-  content: "";
-  position: fixed;
-  inset: -20%;
-  z-index: 0;
-  pointer-events: none;
-  filter: blur(55px);
-  opacity: 0.55;
-  transform: translate3d(0,0,0);
-}
-
-body::before{
-  background:
-    radial-gradient(circle at 20% 25%, rgba(249,115,22,0.35), transparent 55%),
-    radial-gradient(circle at 80% 30%, rgba(251,146,60,0.25), transparent 55%),
-    radial-gradient(circle at 40% 85%, rgba(253,186,116,0.22), transparent 60%);
-  animation: blobFloatA 18s ease-in-out infinite;
-}
-
-body::after{
-  background:
-    radial-gradient(circle at 70% 75%, rgba(249,115,22,0.22), transparent 60%),
-    radial-gradient(circle at 15% 70%, rgba(253,186,116,0.20), transparent 55%),
-    radial-gradient(circle at 55% 15%, rgba(251,146,60,0.18), transparent 55%);
-  animation: blobFloatB 24s ease-in-out infinite;
-  opacity: 0.45;
-}
-
-@keyframes blobFloatA{
-  0%   { transform: translate(0px, 0px) scale(1); }
-  33%  { transform: translate(40px, -30px) scale(1.05); }
-  66%  { transform: translate(-30px, 35px) scale(0.98); }
-  100% { transform: translate(0px, 0px) scale(1); }
-}
-
-@keyframes blobFloatB{
-  0%   { transform: translate(0px, 0px) scale(1); }
-  33%  { transform: translate(-45px, 25px) scale(1.06); }
-  66%  { transform: translate(35px, -40px) scale(0.97); }
-  100% { transform: translate(0px, 0px) scale(1); }
-}
-
-/* Keep your content above the blobs */
-.wrap{
-  position: relative;
-  z-index: 1;
-}
   </style>
 </head>
 
@@ -460,9 +453,7 @@ body::after{
   <div class="wrap">
     <div class="topbar">
       <div class="brand">
-        <img src="images/profile.jpg"
-           alt="Sai Kandagattla profile photo"
-           class="avatar">
+        <img src="images/profile.jpg" alt="Sai Kandagattla profile photo" class="avatar">
         <div>
           <strong>Sai Kandagattla</strong>
           <span>Cork, Ireland</span>
@@ -483,8 +474,7 @@ body::after{
         <h1>Turning data into decisions.</h1>
         <p class="sub">
           MSc Business Analytics graduate with experience in Python, SQL, Tableau, Power BI, and Excel.
-          I build dashboards and predictive models that support marketing performance, customer understanding,
-          and sustainability focused insights.
+          I build dashboards and predictive models that support marketing performance, customer understanding, and sustainability focused insights.
         </p>
 
         <div class="chips">
@@ -543,58 +533,79 @@ body::after{
       <h2>Featured projects</h2>
 
       <div class="grid">
-      
-<article class="card">
-  <h3>Coral Bleaching Prediction Dashboard</h3>
-  <p>
-    Machine learning enabled early warning system for predicting coral reef bleaching using
-    environmental and climate data, delivered through an interactive Streamlit dashboard.
-  </p>
 
-  <div class="meta">
-    <span class="pill">Python</span>
-    <span class="pill">Streamlit</span>
-    <span class="pill">Machine Learning</span>
-  </div>
-
-  <div class="links">
-    <a href="https://github.com/saivishnu-k/coral-bleaching-dashboard"
-       target="_blank"
-       rel="noreferrer">
-       Repository
-    </a>
-
-    <a href="https://reef-dashboard.streamlit.app/"
-       target="_blank"
-       rel="noreferrer">
-       Live demo
-    </a>
-  </div>
-</article>
-        
         <article class="card">
-          <h3>Customer Analysis Dashboard</h3>
-          <p>Dashboard exploring demographics, financial behaviour, and regional patterns with segmentation filters for fast comparison.</p>
+          <h3>Coral Bleaching Prediction Dashboard</h3>
+          <p>Machine learning enabled early warning system using 50,000 plus climate and ocean records to predict coral bleaching risk and support conservation prioritisation.</p>
           <div class="meta">
-            <span class="pill">Tableau</span><span class="pill">EDA</span><span class="pill">Segmentation</span>
+            <span class="pill">Python</span><span class="pill">Streamlit</span><span class="pill">Machine Learning</span>
           </div>
           <div class="links">
-            <a href="#" title="Replace with your repo or Tableau public link">Dashboard</a>
-            <a href="#" title="Replace with your repo link">Repository</a>
+            <a href="https://github.com/saivishnu-k/coral-bleaching-dashboard" target="_blank" rel="noreferrer">Repository</a>
+            <a href="https://reef-dashboard.streamlit.app/" target="_blank" rel="noreferrer">Live demo</a>
           </div>
         </article>
 
         <article class="card">
-          <h3>Dublin Housing Prediction</h3>
-          <p>Predictive analytics project exploring factors that influence housing affordability and purchase outcomes, with model comparison.</p>
+          <h3>Time Series Forecasting of Exchange Rate and PPP</h3>
+          <p>Built ARIMA models in R to forecast exchange rates from 2014 to 2024 and test Purchasing Power Parity, finding random walk behaviour and limited short run support.</p>
           <div class="meta">
-            <span class="pill">Python</span><span class="pill">Pandas</span><span class="pill">Scikit learn</span>
+            <span class="pill">R</span><span class="pill">ARIMA</span><span class="pill">Econometrics</span>
           </div>
           <div class="links">
-            <a href="#" title="Replace with your repo link">Repository</a>
-            <a href="#" title="Replace with a report or notebook link">Notebook</a>
+            <a href="#" title="Add your repository link">Repository</a>
+            <a href="#" title="Add your report or notebook link">Report</a>
           </div>
         </article>
+
+        <article class="card">
+          <h3>Supply Chain Optimisation Model</h3>
+          <p>Developed a multi objective optimisation model to reduce costs and emissions while addressing a 31 percent capacity shortfall and improving service levels.</p>
+          <div class="meta">
+            <span class="pill">Python</span><span class="pill">MILP</span><span class="pill">Optimisation</span>
+          </div>
+          <div class="links">
+            <a href="#" title="Add your repository link">Repository</a>
+            <a href="#" title="Add your report or notebook link">Model</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>UK Bank Customer Segmentation Dashboard</h3>
+          <p>Built an interactive Tableau dashboard to explore customer demographics and behaviour patterns with segmentation for fast comparison and insight.</p>
+          <div class="meta">
+            <span class="pill">Tableau</span><span class="pill">Segmentation</span><span class="pill">BI</span>
+          </div>
+          <div class="links">
+            <a href="#" title="Add your Tableau Public link">Dashboard</a>
+            <a href="#" title="Add your repository link">Repository</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Dublin Housing Price and Purchase Prediction</h3>
+          <p>Developed predictive models using 10,000 plus property records to analyse housing affordability drivers and purchase outcomes.</p>
+          <div class="meta">
+            <span class="pill">Python</span><span class="pill">Feature Engineering</span><span class="pill">Machine Learning</span>
+          </div>
+          <div class="links">
+            <a href="#" title="Add your repository link">Repository</a>
+            <a href="#" title="Add your notebook link">Notebook</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Power BI Sales Analysis Dashboard</h3>
+          <p>Upcoming Power BI dashboard focused on sales performance, customer trends, and decision ready KPIs for business stakeholders.</p>
+          <div class="meta">
+            <span class="pill">Power BI</span><span class="pill">DAX</span><span class="pill">Dashboard</span>
+          </div>
+          <div class="links">
+            <a href="#" title="Add your dashboard link">Dashboard</a>
+            <a href="#" title="Add your repository link">Repository</a>
+          </div>
+        </article>
+
       </div>
     </section>
 
@@ -611,7 +622,7 @@ body::after{
 
         <article class="card">
           <h3>Tools</h3>
-          <p>Python, SQL, Tableau, Power BI, Excel, Power Query, Google Analytics style reporting.</p>
+          <p>Python, SQL, Tableau, Power BI, Excel, Power Query, web analytics reporting.</p>
           <div class="meta">
             <span class="pill">Python</span><span class="pill">SQL</span><span class="pill">Excel</span>
           </div>
