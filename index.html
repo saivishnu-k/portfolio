@@ -29,12 +29,20 @@
     *{ box-sizing: border-box; }
     html, body { height: 100%; }
     body{
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color: var(--text);
-      background: radial-gradient(900px 500px at 15% 10%, rgba(249,115,22,0.18), transparent 60%),
-            radial-gradient(900px 500px at 85% 20%, rgba(251,146,60,0.12), transparent 60%),
-            linear-gradient(180deg, #ffffff 0%, #fff7ed 55%, #ffffff 100%);
+       margin: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    color: var(--text);
+
+    background: linear-gradient(
+      -45deg,
+      #ffffff,
+      #fff7ed,
+      #fed7aa,
+      #ffffff
+  );
+
+  background-size: 400% 400%;
+  animation: gradientMove 18s ease infinite;
     }
 
     a{ color: inherit; text-decoration: none; }
@@ -402,6 +410,18 @@
   background: #fff7ed !important;
   border: 1px solid #fdba74 !important;
   font-weight: 600;
+}
+
+ @keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
   }
   </style>
