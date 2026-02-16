@@ -3,90 +3,89 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sai Kandagattla | Portfolio</title>
-  <meta name="description" content="Portfolio of Sai Kandagattla. Analytics projects in Python, SQL, Tableau, Power BI and Excel." />
+  <title>Sai Kandagattla | Data Analytics Portfolio</title>
+  <meta name="description" content="Portfolio of Sai Kandagattla. Data analytics projects in Python, SQL, Tableau, Power BI and Excel." />
 
   <style>
     :root{
-      --bg0: #05070f;
-      --bg1: #070a16;
+      --bg0:#070A12;
+      --bg1:#0A0F1E;
+      --glass:rgba(255,255,255,0.06);
+      --glass2:rgba(255,255,255,0.09);
+      --stroke:rgba(255,255,255,0.12);
 
-      --panel: rgba(255,255,255,0.08);
-      --panelStrong: rgba(255,255,255,0.12);
+      --text:rgba(255,255,255,0.92);
+      --muted:rgba(255,255,255,0.70);
 
-      --text: rgba(255,255,255,0.92);
-      --muted: rgba(255,255,255,0.68);
-      --soft: rgba(255,255,255,0.14);
+      --accent:#59C1FF;
+      --accent2:#7CFFB2;
+      --accent3:#FFB86B;
 
-      --brand: #ff7a18;
-      --brand2: #ffb86c;
-      --brand3: #ff4d9d;
-      --brand4: #7ad3ff;
+      --shadow: 0 22px 70px rgba(0,0,0,0.40);
+      --shadow2: 0 12px 35px rgba(0,0,0,0.30);
 
-      --shadow: 0 24px 70px rgba(0,0,0,0.45);
-      --shadow2: 0 10px 35px rgba(0,0,0,0.35);
+      --r1:16px;
+      --r2:24px;
+      --max:1120px;
 
-      --radius: 18px;
-      --radius2: 26px;
-      --max: 1120px;
-
-      --ring: 0 0 0 6px rgba(255,122,24,0.18);
+      --ring: 0 0 0 3px rgba(255,255,255,0.25), 0 0 0 7px rgba(89,193,255,0.18);
     }
 
-    *{ box-sizing: border-box; }
-    html, body { height: 100%; }
-
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
     body{
-      margin: 0;
+      margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color: var(--text);
+      color:var(--text);
       background:
-        radial-gradient(1200px 700px at 20% 15%, rgba(255,122,24,0.18), transparent 55%),
-        radial-gradient(900px 600px at 80% 20%, rgba(255,77,157,0.14), transparent 55%),
-        radial-gradient(900px 700px at 50% 95%, rgba(255,184,108,0.14), transparent 58%),
+        radial-gradient(1200px 900px at 20% 20%, rgba(89,193,255,0.12), transparent 55%),
+        radial-gradient(1000px 700px at 80% 30%, rgba(124,255,178,0.10), transparent 60%),
+        radial-gradient(900px 700px at 55% 95%, rgba(255,184,107,0.08), transparent 60%),
         linear-gradient(180deg, var(--bg0), var(--bg1));
-      overflow-x: hidden;
+      overflow-x:hidden;
     }
 
-    /* Dynamic canvas background sits behind everything */
-    #fx{
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
-      pointer-events: none;
-      opacity: 0.95;
+    /* Dynamic analytics background */
+    #bg{
+      position:fixed;
+      inset:0;
+      width:100%;
+      height:100%;
+      z-index:0;
+      pointer-events:none;
+      opacity:0.95;
     }
 
-    /* Subtle vignette */
-    body::after{
+    /* Soft vignette + subtle grain */
+    body::before{
       content:"";
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
+      position:fixed;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
       background:
-        radial-gradient(1200px 800px at 50% 35%, rgba(255,255,255,0.06), transparent 55%),
-        radial-gradient(1200px 900px at 50% 90%, rgba(0,0,0,0.45), transparent 55%),
-        radial-gradient(900px 700px at 50% 50%, transparent 45%, rgba(0,0,0,0.42));
+        radial-gradient(1200px 800px at 50% 25%, rgba(255,255,255,0.06), transparent 55%),
+        radial-gradient(1200px 900px at 50% 95%, rgba(0,0,0,0.55), transparent 60%),
+        radial-gradient(900px 700px at 50% 50%, transparent 45%, rgba(0,0,0,0.42)),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.012), rgba(255,255,255,0.012) 1px, transparent 1px, transparent 3px);
       mix-blend-mode: overlay;
+      opacity:0.9;
     }
 
-    a{ color: inherit; text-decoration: none; }
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration:none; }
     a:focus-visible{
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(255,255,255,0.25), var(--ring);
-      border-radius: 12px;
+      outline:none;
+      box-shadow:var(--ring);
+      border-radius:12px;
     }
 
     .wrap{
-      position: relative;
-      z-index: 1;
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 28px 18px 64px;
+      position:relative;
+      z-index:1;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:28px 18px 72px;
     }
 
     .topbar{
@@ -94,10 +93,10 @@
       align-items:center;
       justify-content:space-between;
       gap:12px;
-      padding: 10px 12px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(10,12,20,0.55);
-      border-radius: 16px;
+      padding:12px 12px;
+      border:1px solid var(--stroke);
+      background: rgba(10,15,30,0.55);
+      border-radius:18px;
       backdrop-filter: blur(14px);
       box-shadow: var(--shadow2);
       position: sticky;
@@ -112,97 +111,93 @@
     }
 
     .avatar{
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid rgba(255,122,24,0.45);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      object-fit:cover;
+      border:1px solid rgba(89,193,255,0.35);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.35);
       background: rgba(255,255,255,0.08);
     }
 
-    .brand strong{ display:block; font-size: 14px; letter-spacing: 0.2px; }
-    .brand span{ display:block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .brand strong{ display:block; font-size:14px; letter-spacing:0.2px; }
+    .brand span{ display:block; font-size:12px; color:var(--muted); margin-top:2px; }
 
     nav{
       display:flex;
       align-items:center;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
 
     .navlink{
-      font-size: 13px;
-      color: var(--muted);
-      padding: 9px 11px;
-      border-radius: 14px;
-      border: 1px solid transparent;
+      font-size:13px;
+      color:var(--muted);
+      padding:9px 11px;
+      border-radius:14px;
+      border:1px solid transparent;
       background: rgba(255,255,255,0.04);
-      transition: 140ms ease;
+      transition: 160ms ease;
     }
 
     .navlink:hover{
-      color: var(--text);
-      border-color: rgba(255,122,24,0.26);
-      background: rgba(255,122,24,0.10);
+      color:var(--text);
+      border-color: rgba(89,193,255,0.24);
+      background: rgba(89,193,255,0.10);
       transform: translateY(-1px);
     }
 
     .hero{
-      margin-top: 22px;
+      margin-top:20px;
       display:grid;
       grid-template-columns: 1.2fr 0.8fr;
-      gap: 16px;
-      align-items: start;
+      gap:16px;
+      align-items:start;
     }
 
     .panel{
-      border: 1px solid rgba(255,255,255,0.14);
-      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.06));
-      border-radius: var(--radius2);
+      border:1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.05));
+      border-radius: var(--r2);
       box-shadow: var(--shadow);
-      padding: 22px;
-      position: relative;
-      overflow: hidden;
+      padding:22px;
+      position:relative;
+      overflow:hidden;
       backdrop-filter: blur(14px);
     }
 
     .panel::before{
       content:"";
       position:absolute;
-      inset: -2px;
+      inset:-2px;
       background:
-        radial-gradient(800px 280px at 18% 18%, rgba(255,122,24,0.22), transparent 55%),
-        radial-gradient(700px 320px at 85% 30%, rgba(255,77,157,0.18), transparent 55%),
-        radial-gradient(700px 360px at 35% 90%, rgba(255,184,108,0.16), transparent 58%);
+        radial-gradient(900px 340px at 12% 20%, rgba(89,193,255,0.16), transparent 55%),
+        radial-gradient(800px 360px at 90% 30%, rgba(124,255,178,0.10), transparent 60%),
+        radial-gradient(700px 320px at 35% 95%, rgba(255,184,107,0.08), transparent 62%);
       pointer-events:none;
-      opacity: 1;
       filter: blur(10px);
+      opacity: 1;
     }
-
-    .panel > * { position: relative; }
+    .panel > *{ position:relative; }
 
     .kicker{
       display:inline-flex;
       align-items:center;
       gap:10px;
-      font-size: 12px;
-      letter-spacing: 0.6px;
+      font-size:12px;
+      letter-spacing:0.7px;
       text-transform: uppercase;
       font-weight: 900;
-      background: linear-gradient(90deg, rgba(255,122,24,0.98), rgba(255,184,108,0.95), rgba(255,77,157,0.9), rgba(122,211,255,0.88));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      color: rgba(255,255,255,0.82);
     }
 
-    .dot{
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(255,122,24,0.92));
-      box-shadow: 0 0 0 7px rgba(255,122,24,0.18), 0 10px 25px rgba(0,0,0,0.35);
+    .kdot{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(89,193,255,0.85));
+      box-shadow: 0 0 0 7px rgba(89,193,255,0.16), 0 10px 25px rgba(0,0,0,0.35);
     }
 
     h1{
@@ -213,41 +208,41 @@
     }
 
     .sub{
-      margin: 0;
+      margin:0;
+      max-width: 64ch;
       color: var(--muted);
       font-size: 15px;
-      line-height: 1.6;
-      max-width: 62ch;
+      line-height: 1.65;
     }
 
     .chips{
-      margin-top: 16px;
+      margin-top:16px;
       display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
+      flex-wrap:wrap;
+      gap:10px;
     }
 
     .chip{
-      font-size: 12px;
+      font-size:12px;
       color: rgba(255,255,255,0.9);
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.05);
       padding: 8px 12px;
       border-radius: 999px;
       font-weight: 900;
       box-shadow: 0 10px 25px rgba(0,0,0,0.22);
     }
 
-    .chip.hot{
-      border-color: rgba(255,122,24,0.40);
-      background: linear-gradient(135deg, rgba(255,122,24,0.22), rgba(255,77,157,0.16));
+    .chip.accent{
+      border-color: rgba(89,193,255,0.30);
+      background: linear-gradient(135deg, rgba(89,193,255,0.18), rgba(124,255,178,0.10));
     }
 
     .cta{
       margin-top: 18px;
       display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
+      flex-wrap:wrap;
+      gap:10px;
       align-items:center;
     }
 
@@ -256,47 +251,47 @@
       align-items:center;
       justify-content:center;
       gap:10px;
-      padding: 10px 14px;
+      padding:10px 14px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.05);
       color: rgba(255,255,255,0.94);
       font-weight: 900;
       font-size: 13px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.22);
       transition: 160ms ease;
-      cursor: pointer;
+      cursor:pointer;
     }
 
     .btn:hover{
-      background: rgba(255,255,255,0.10);
-      border-color: rgba(255,122,24,0.32);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(89,193,255,0.26);
       transform: translateY(-1px);
     }
 
     .btn.primary{
-      border-color: rgba(255,122,24,0.44);
-      background: linear-gradient(135deg, rgba(255,122,24,0.24), rgba(255,77,157,0.16));
+      border-color: rgba(89,193,255,0.36);
+      background: linear-gradient(135deg, rgba(89,193,255,0.18), rgba(124,255,178,0.10));
     }
 
     .btn.primary:hover{
-      background: linear-gradient(135deg, rgba(255,122,24,0.30), rgba(255,77,157,0.20));
+      background: linear-gradient(135deg, rgba(89,193,255,0.24), rgba(124,255,178,0.14));
     }
 
     .right{
       display:grid;
-      gap: 16px;
+      gap:16px;
     }
 
     .mini{
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.06);
-      border-radius: var(--radius);
-      padding: 16px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,0.05);
+      border-radius: var(--r1);
+      padding:16px;
       box-shadow: var(--shadow2);
       backdrop-filter: blur(14px);
-      position: relative;
-      overflow: hidden;
+      position:relative;
+      overflow:hidden;
     }
 
     .mini::before{
@@ -304,87 +299,52 @@
       position:absolute;
       inset:-2px;
       background:
-        radial-gradient(650px 240px at 20% 20%, rgba(255,122,24,0.16), transparent 55%),
-        radial-gradient(600px 260px at 80% 30%, rgba(255,77,157,0.12), transparent 55%);
-      opacity: 0.9;
-      filter: blur(10px);
+        radial-gradient(700px 260px at 20% 20%, rgba(89,193,255,0.12), transparent 60%),
+        radial-gradient(700px 260px at 85% 30%, rgba(124,255,178,0.08), transparent 60%);
       pointer-events:none;
+      filter: blur(12px);
+      opacity:0.9;
     }
-
-    .mini > *{ position: relative; }
+    .mini > *{ position:relative; }
 
     .mini h3{
-      margin: 0 0 10px;
-      font-size: 14px;
-      letter-spacing: -0.2px;
+      margin:0 0 10px;
+      font-size:14px;
+      letter-spacing:-0.2px;
     }
-
     .mini p{
-      margin: 0;
+      margin:0;
       color: var(--muted);
-      font-size: 13px;
-      line-height: 1.6;
+      font-size:13px;
+      line-height:1.65;
     }
 
-    .list{
-      margin: 10px 0 0;
-      padding: 0;
-      list-style: none;
+    .statRow{
+      margin-top: 12px;
       display:grid;
-      gap: 10px;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
     }
 
-    .li{
-      display:flex;
-      align-items:flex-start;
-      gap: 10px;
+    .stat{
+      border:1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      border-radius: 14px;
       padding: 10px 10px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.05);
-      transition: 160ms ease;
     }
-
-    .li:hover{
-      border-color: rgba(255,122,24,0.26);
-      background: rgba(255,122,24,0.10);
-      transform: translateY(-1px);
-    }
-
-    .badge{
-      font-size: 11px;
-      padding: 6px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,122,24,0.38);
-      color: rgba(255,255,255,0.95);
-      background: rgba(255,122,24,0.14);
-      white-space: nowrap;
-      font-weight: 900;
-    }
-
-    .li strong{
-      display:block;
-      font-size: 13px;
-      margin-bottom: 2px;
-    }
-
-    .li span{
-      display:block;
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
+    .stat strong{ display:block; font-size: 13px; }
+    .stat span{ display:block; margin-top: 2px; color: var(--muted); font-size: 12px; line-height: 1.5; }
 
     .section{
-      margin-top: 18px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.06);
-      border-radius: var(--radius2);
+      margin-top:18px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,0.05);
+      border-radius: var(--r2);
       padding: 18px;
       box-shadow: var(--shadow2);
       backdrop-filter: blur(14px);
-      position: relative;
-      overflow: hidden;
+      position:relative;
+      overflow:hidden;
     }
 
     .section::before{
@@ -392,130 +352,129 @@
       position:absolute;
       inset:-2px;
       background:
-        radial-gradient(900px 260px at 15% 20%, rgba(255,122,24,0.14), transparent 55%),
-        radial-gradient(900px 260px at 85% 30%, rgba(255,77,157,0.10), transparent 55%);
-      opacity: 0.9;
-      filter: blur(12px);
+        radial-gradient(900px 260px at 15% 20%, rgba(89,193,255,0.10), transparent 60%),
+        radial-gradient(900px 260px at 85% 30%, rgba(124,255,178,0.07), transparent 60%);
       pointer-events:none;
+      filter: blur(12px);
+      opacity:0.9;
     }
-
-    .section > *{ position: relative; }
+    .section > *{ position:relative; }
 
     .section h2{
-      margin: 0 0 12px;
-      font-size: 16px;
-      letter-spacing: -0.3px;
+      margin:0 0 12px;
+      font-size:16px;
+      letter-spacing:-0.3px;
     }
 
     .grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      gap:12px;
     }
 
     .card{
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.06);
-      border-radius: var(--radius);
-      padding: 14px;
+      border:1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      border-radius: var(--r1);
+      padding:14px;
       display:flex;
       flex-direction: column;
-      gap: 10px;
-      min-height: 178px;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.30);
+      gap:10px;
+      min-height: 176px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.28);
       backdrop-filter: blur(14px);
       transition: 170ms ease;
-      position: relative;
-      overflow: hidden;
-      transform: translateZ(0);
+      position:relative;
+      overflow:hidden;
     }
 
-    .card::before{
+    .card::after{
       content:"";
       position:absolute;
       inset:-2px;
       background:
-        radial-gradient(450px 240px at 20% 25%, rgba(255,122,24,0.14), transparent 55%),
-        radial-gradient(450px 240px at 80% 35%, rgba(255,77,157,0.10), transparent 55%);
-      opacity: 0;
-      transition: 170ms ease;
+        radial-gradient(520px 260px at 20% 25%, rgba(89,193,255,0.10), transparent 60%),
+        radial-gradient(520px 260px at 80% 35%, rgba(124,255,178,0.07), transparent 60%);
+      opacity:0;
+      transition:170ms ease;
       pointer-events:none;
-      filter: blur(10px);
+      filter: blur(12px);
     }
 
     .card:hover{
-      border-color: rgba(255,122,24,0.28);
-      box-shadow: 0 20px 55px rgba(0,0,0,0.40);
+      border-color: rgba(89,193,255,0.20);
+      box-shadow: 0 20px 55px rgba(0,0,0,0.38);
       transform: translateY(-2px);
     }
-    .card:hover::before{ opacity: 1; }
-
-    .card > *{ position: relative; }
+    .card:hover::after{ opacity:1; }
 
     .card h3{
-      margin: 0;
-      font-size: 14px;
-      letter-spacing: -0.2px;
+      margin:0;
+      font-size:14px;
+      letter-spacing:-0.2px;
     }
-
     .card p{
-      margin: 0;
+      margin:0;
       color: var(--muted);
-      font-size: 13px;
-      line-height: 1.6;
-      flex: 1;
+      font-size:13px;
+      line-height:1.65;
+      flex:1;
     }
 
     .meta{
       display:flex;
-      flex-wrap: wrap;
-      gap: 8px;
+      flex-wrap:wrap;
+      gap:8px;
       align-items:center;
     }
 
     .pill{
-      font-size: 11px;
-      color: rgba(255,255,255,0.9);
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.06);
-      padding: 6px 10px;
-      border-radius: 999px;
+      font-size:11px;
+      border:1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.05);
+      padding:6px 10px;
+      border-radius:999px;
       font-weight: 900;
+      color: rgba(255,255,255,0.90);
     }
 
-    .pill.hot{
-      border-color: rgba(255,122,24,0.38);
-      background: rgba(255,122,24,0.14);
+    .pill.cyan{
+      border-color: rgba(89,193,255,0.28);
+      background: rgba(89,193,255,0.10);
+    }
+    .pill.green{
+      border-color: rgba(124,255,178,0.22);
+      background: rgba(124,255,178,0.08);
     }
 
     .links{
       display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
+      gap:10px;
+      flex-wrap:wrap;
     }
 
     .links a{
-      font-size: 12px;
-      color: rgba(255,255,255,0.95);
-      padding: 8px 12px;
+      font-size:12px;
+      padding:8px 12px;
       border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.05);
       font-weight: 900;
       transition: 160ms ease;
+      color: rgba(255,255,255,0.94);
     }
 
     .links a:hover{
-      background: rgba(255,122,24,0.12);
-      border-color: rgba(255,122,24,0.28);
+      background: rgba(89,193,255,0.10);
+      border-color: rgba(89,193,255,0.24);
       transform: translateY(-1px);
     }
 
     .footer{
       margin-top: 18px;
-      color: rgba(255,255,255,0.62);
       text-align:center;
       font-size: 12px;
+      color: rgba(255,255,255,0.62);
     }
 
     .sr-only{
@@ -532,27 +491,27 @@
 
     @media (max-width: 920px){
       .hero{ grid-template-columns: 1fr; }
-      nav{ justify-content: flex-start; }
+      nav{ justify-content:flex-start; }
       .grid{ grid-template-columns: 1fr; }
       h1{ font-size: 34px; }
       .topbar{ position: relative; top: 0; }
     }
 
     @media (prefers-reduced-motion: reduce){
-      #fx{ display: none; }
-      .card, .btn, .navlink, .li{ transition: none; }
-      .card:hover, .btn:hover, .navlink:hover, .li:hover{ transform: none; }
+      #bg{ display:none; }
+      .card, .btn, .navlink{ transition:none; }
+      .card:hover, .btn:hover, .navlink:hover{ transform:none; }
     }
   </style>
 </head>
 
 <body>
-  <canvas id="fx" aria-hidden="true"></canvas>
+  <canvas id="bg" aria-hidden="true"></canvas>
 
   <div class="wrap">
     <div class="topbar">
       <div class="brand">
-        <img src="images/profile.jpg" alt="Sai Kandagattla profile photo" class="avatar">
+        <img src="images/profile.jpg" alt="Sai Kandagattla profile photo" class="avatar" />
         <div>
           <strong>Sai Kandagattla</strong>
           <span>Cork, Ireland</span>
@@ -569,15 +528,15 @@
 
     <div class="hero">
       <div class="panel">
-        <div class="kicker"><span class="dot"></span> Data analytics portfolio</div>
-        <h1>Turning data into decisions.</h1>
+        <div class="kicker"><span class="kdot"></span> Data and analytics portfolio</div>
+        <h1>Analytics that tells a clear story.</h1>
         <p class="sub">
-          MSc Business Analytics graduate with experience in Python, SQL, Tableau, Power BI, and Excel.
-          I build dashboards and predictive models that support marketing performance, customer understanding, and sustainability focused insights.
+          MSc Business Analytics graduate with hands on experience in Python, SQL, Tableau, Power BI, and Excel.
+          I build dashboards, models, and decision ready insights for marketing performance, customer behaviour, and sustainability focused work.
         </p>
 
-        <div class="chips" aria-label="Key skills">
-          <div class="chip hot">Python</div>
+        <div class="chips" aria-label="Key tools">
+          <div class="chip accent">Python</div>
           <div class="chip">SQL</div>
           <div class="chip">Tableau</div>
           <div class="chip">Power BI</div>
@@ -595,46 +554,28 @@
 
       <div class="right">
         <div class="mini">
-          <h3>What you will find here</h3>
-          <p>Each project includes a short business problem, approach, tools used, outcomes, and links to code or dashboards.</p>
+          <h3>What this site is</h3>
+          <p>Short, business first project summaries with links to code and dashboards. Clean visuals. Fast to scan.</p>
+
+          <div class="statRow" aria-label="At a glance">
+            <div class="stat">
+              <strong>Focus</strong>
+              <span>Decision ready insights</span>
+            </div>
+            <div class="stat">
+              <strong>Strength</strong>
+              <span>Dashboards and modelling</span>
+            </div>
+          </div>
         </div>
 
         <div class="mini">
-          <h3>Highlights</h3>
-          <ul class="list">
-            <li class="li">
-              <span class="badge">Marketing</span>
-              <div>
-                <strong>Campaign and revenue analysis</strong>
-                <span>ROAS, CAC, CLV, variance checks, and performance reporting.</span>
-              </div>
-            </li>
-            <li class="li">
-              <span class="badge">Dashboards</span>
-              <div>
-                <strong>Interactive BI reporting</strong>
-                <span>Tableau and Power BI visuals focused on stakeholder clarity.</span>
-              </div>
-            </li>
-            <li class="li">
-              <span class="badge">ML</span>
-              <div>
-                <strong>Predictive modelling</strong>
-                <span>Feature engineering, model comparison, and practical evaluation.</span>
-              </div>
-            </li>
-          </ul>
-        </div>
+          <h3>Background</h3>
+          <p>The animated backdrop is a subtle data network plus time series traces. It reacts to your cursor and stays lightweight.</p>
 
-        <div class="mini" aria-live="polite">
-          <h3>Background controls</h3>
-          <p>
-            <span id="fxMode">Cosmic flow</span>
-            <span class="sr-only">Background effect status</span>
-          </p>
           <div class="cta" style="margin-top:12px">
-            <button class="btn" id="toggleFx" type="button">Toggle background</button>
-            <button class="btn" id="boostFx" type="button">Boost</button>
+            <button class="btn" id="toggleBg" type="button">Toggle background</button>
+            <button class="btn" id="density" type="button">More detail</button>
           </div>
         </div>
       </div>
@@ -646,9 +587,11 @@
       <div class="grid">
         <article class="card">
           <h3>Coral Bleaching Prediction Dashboard</h3>
-          <p>Machine learning enabled early warning system using 50,000 plus climate and ocean records to predict coral bleaching risk and support conservation prioritisation.</p>
+          <p>Early warning system using 50,000 plus climate and ocean records to predict coral bleaching risk and support conservation prioritisation.</p>
           <div class="meta">
-            <span class="pill hot">Python</span><span class="pill">Streamlit</span><span class="pill">Machine Learning</span>
+            <span class="pill cyan">Python</span>
+            <span class="pill">Streamlit</span>
+            <span class="pill green">Machine Learning</span>
           </div>
           <div class="links">
             <a href="https://github.com/saivishnu-k/coral-bleaching-dashboard" target="_blank" rel="noreferrer">Repository</a>
@@ -658,9 +601,11 @@
 
         <article class="card">
           <h3>Time Series Forecasting of Exchange Rate and PPP</h3>
-          <p>Built ARIMA models in R to forecast exchange rates from 2014 to 2024 and test Purchasing Power Parity, finding random walk behaviour and limited short run support.</p>
+          <p>Built ARIMA models in R to forecast exchange rates from 2014 to 2024 and test Purchasing Power Parity with practical evaluation.</p>
           <div class="meta">
-            <span class="pill">R</span><span class="pill">ARIMA</span><span class="pill">Econometrics</span>
+            <span class="pill">R</span>
+            <span class="pill">ARIMA</span>
+            <span class="pill">Econometrics</span>
           </div>
           <div class="links">
             <a href="#" title="Add your repository link">Repository</a>
@@ -670,9 +615,11 @@
 
         <article class="card">
           <h3>Supply Chain Optimisation Model</h3>
-          <p>Developed a multi objective optimisation model to reduce costs and emissions while addressing a 31 percent capacity shortfall and improving service levels.</p>
+          <p>Multi objective optimisation model to reduce costs and emissions while addressing a 31 percent capacity shortfall and improving service levels.</p>
           <div class="meta">
-            <span class="pill hot">Python</span><span class="pill">MILP</span><span class="pill">Optimisation</span>
+            <span class="pill cyan">Python</span>
+            <span class="pill">MILP</span>
+            <span class="pill">Optimisation</span>
           </div>
           <div class="links">
             <a href="#" title="Add your repository link">Repository</a>
@@ -682,9 +629,11 @@
 
         <article class="card">
           <h3>UK Bank Customer Segmentation Dashboard</h3>
-          <p>Built an interactive Tableau dashboard to explore customer demographics and behaviour patterns with segmentation for fast comparison and insight.</p>
+          <p>Interactive Tableau dashboard exploring customer demographics and behaviour patterns with segmentation for quick comparison and insight.</p>
           <div class="meta">
-            <span class="pill">Tableau</span><span class="pill">Segmentation</span><span class="pill">BI</span>
+            <span class="pill">Tableau</span>
+            <span class="pill">Segmentation</span>
+            <span class="pill">BI</span>
           </div>
           <div class="links">
             <a href="#" title="Add your Tableau Public link">Dashboard</a>
@@ -694,9 +643,11 @@
 
         <article class="card">
           <h3>Dublin Housing Price and Purchase Prediction</h3>
-          <p>Developed predictive models using 10,000 plus property records to analyse housing affordability drivers and purchase outcomes.</p>
+          <p>Predictive modelling using 10,000 plus property records to analyse affordability drivers and purchase outcomes.</p>
           <div class="meta">
-            <span class="pill hot">Python</span><span class="pill">Feature Engineering</span><span class="pill">Machine Learning</span>
+            <span class="pill cyan">Python</span>
+            <span class="pill">Feature Engineering</span>
+            <span class="pill green">Machine Learning</span>
           </div>
           <div class="links">
             <a href="#" title="Add your repository link">Repository</a>
@@ -706,9 +657,11 @@
 
         <article class="card">
           <h3>Power BI Sales Analysis Dashboard</h3>
-          <p>Upcoming Power BI dashboard focused on sales performance, customer trends, and decision ready KPIs for business stakeholders.</p>
+          <p>Upcoming Power BI dashboard focused on sales performance, customer trends, and decision ready KPIs for stakeholders.</p>
           <div class="meta">
-            <span class="pill">Power BI</span><span class="pill">DAX</span><span class="pill">Dashboard</span>
+            <span class="pill">Power BI</span>
+            <span class="pill">DAX</span>
+            <span class="pill">Dashboard</span>
           </div>
           <div class="links">
             <a href="#" title="Add your dashboard link">Dashboard</a>
@@ -723,25 +676,31 @@
       <div class="grid">
         <article class="card">
           <h3>Analysis</h3>
-          <p>Data cleaning, validation, EDA, trend and variance analysis, stakeholder reporting.</p>
+          <p>Data cleaning, validation, EDA, time series basics, variance analysis, and stakeholder reporting.</p>
           <div class="meta">
-            <span class="pill">EDA</span><span class="pill">KPI tracking</span><span class="pill">Controls</span>
+            <span class="pill">EDA</span>
+            <span class="pill">KPI tracking</span>
+            <span class="pill">Quality checks</span>
           </div>
         </article>
 
         <article class="card">
           <h3>Tools</h3>
-          <p>Python, SQL, Tableau, Power BI, Excel, Power Query, web analytics reporting.</p>
+          <p>Python, SQL, Tableau, Power BI, Excel, Power Query, and dashboard delivery for teams.</p>
           <div class="meta">
-            <span class="pill hot">Python</span><span class="pill">SQL</span><span class="pill">Excel</span>
+            <span class="pill cyan">Python</span>
+            <span class="pill">SQL</span>
+            <span class="pill">Excel</span>
           </div>
         </article>
 
         <article class="card">
           <h3>Business focus</h3>
-          <p>Marketing performance, customer behaviour, revenue analysis, and decision ready insights.</p>
+          <p>Marketing performance, customer behaviour, revenue analysis, sustainability analytics, and clear storytelling.</p>
           <div class="meta">
-            <span class="pill">Marketing</span><span class="pill">Customer</span><span class="pill">Revenue</span>
+            <span class="pill">Marketing</span>
+            <span class="pill">Customer</span>
+            <span class="pill">Sustainability</span>
           </div>
         </article>
       </div>
@@ -752,7 +711,7 @@
       <div class="grid">
         <article class="card">
           <h3>Tableau Intermediate</h3>
-          <p>Building interactive dashboards for trend identification and performance monitoring.</p>
+          <p>Interactive dashboards for trend identification and performance monitoring.</p>
           <div class="meta"><span class="pill">Tableau</span></div>
         </article>
 
@@ -772,251 +731,292 @@
 
     <div class="footer">
       <div>© <span id="y"></span> Sai Kandagattla</div>
-      <div>Site hosted on GitHub Pages</div>
+      <div>Hosted on GitHub Pages</div>
     </div>
   </div>
 
   <script>
-    // ===== Fancy dynamic background: cosmic flow particle field with soft trails =====
-    // High performance, no external libs, pointer-reactive, respects reduced motion.
-
+    // Classy analytics background: grid + nodes + links + subtle time series traces
     (function () {
       const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      const canvas = document.getElementById("fx");
+      const canvas = document.getElementById("bg");
       const ctx = canvas.getContext("2d", { alpha: true, desynchronized: true });
 
-      const uiMode = document.getElementById("fxMode");
-      const btnToggle = document.getElementById("toggleFx");
-      const btnBoost = document.getElementById("boostFx");
+      const btnToggle = document.getElementById("toggleBg");
+      const btnDensity = document.getElementById("density");
 
       const state = {
         w: 0,
         h: 0,
         dpr: Math.min(window.devicePixelRatio || 1, 2),
-        running: !reduceMotion,
-        boost: false,
+        on: !reduceMotion,
+        dense: false,
         t: 0,
-        pointer: { x: 0, y: 0, vx: 0, vy: 0, active: false },
-        particles: [],
-        field: { speed: 1, curl: 1 }
+        mouse: { x: 0, y: 0, vx: 0, vy: 0, active: false },
+        nodes: [],
+        traces: []
       };
 
       function clamp(v, a, b){ return Math.max(a, Math.min(b, v)); }
+      function lerp(a, b, t){ return a + (b - a) * t; }
       function rand(min, max){ return min + Math.random() * (max - min); }
 
-      const palette = [
-        { r: 255, g: 122, b: 24 },   // orange
-        { r: 255, g: 184, b: 108 },  // peach
-        { r: 255, g: 77,  b: 157 },  // pink
-        { r: 122, g: 211, b: 255 }   // cool highlight
-      ];
+      const COLORS = {
+        grid: "rgba(255,255,255,0.05)",
+        axis: "rgba(255,255,255,0.07)",
+        link: "rgba(89,193,255,0.14)",
+        node: "rgba(89,193,255,0.75)",
+        node2: "rgba(124,255,178,0.65)",
+        trace: "rgba(255,184,107,0.18)",
+        trace2: "rgba(124,255,178,0.14)"
+      };
 
       function resize(){
         state.w = Math.max(1, window.innerWidth);
         state.h = Math.max(1, window.innerHeight);
-
         canvas.style.width = state.w + "px";
         canvas.style.height = state.h + "px";
-
         canvas.width = Math.floor(state.w * state.dpr);
         canvas.height = Math.floor(state.h * state.dpr);
-
         ctx.setTransform(state.dpr, 0, 0, state.dpr, 0, 0);
       }
 
-      function createParticle(){
-        const edge = Math.floor(Math.random() * 4);
-        let x, y;
+      function makeNodes(){
+        const base = clamp(Math.round((state.w * state.h) / 52000), 28, 90);
+        const count = state.dense ? Math.round(base * 1.7) : base;
 
-        if (edge === 0){ x = rand(0, state.w); y = -20; }
-        else if (edge === 1){ x = state.w + 20; y = rand(0, state.h); }
-        else if (edge === 2){ x = rand(0, state.w); y = state.h + 20; }
-        else { x = -20; y = rand(0, state.h); }
-
-        const col = palette[Math.floor(Math.random() * palette.length)];
-
-        return {
-          x, y,
-          px: x, py: y,
-          vx: rand(-0.6, 0.6),
-          vy: rand(-0.6, 0.6),
-          a: rand(0.22, 0.62),
-          size: rand(1.1, 2.6),
-          speed: rand(0.35, 1.15),
-          col,
-          life: rand(220, 520),
-          age: 0
-        };
+        state.nodes = [];
+        for (let i = 0; i < count; i++){
+          const x = rand(0, state.w);
+          const y = rand(0, state.h);
+          state.nodes.push({
+            x, y,
+            vx: rand(-0.25, 0.25),
+            vy: rand(-0.25, 0.25),
+            r: rand(1.0, 2.2),
+            a: rand(0.25, 0.75),
+            c: Math.random() < 0.78 ? 0 : 1
+          });
+        }
       }
 
-      function initParticles(){
-        const base = Math.round(clamp((state.w * state.h) / 26000, 36, 130));
-        const count = state.boost ? Math.round(base * 1.6) : base;
-        state.particles = [];
-        for (let i = 0; i < count; i++) state.particles.push(createParticle());
+      function makeTraces(){
+        // Pre bake a couple of gentle time series paths
+        const makeOne = (yBase, amp, speed, col) => ({
+          yBase, amp, speed, col,
+          phase: rand(0, Math.PI * 2),
+          points: []
+        });
+
+        state.traces = [
+          makeOne(state.h * 0.78, 22, 0.9, COLORS.trace),
+          makeOne(state.h * 0.84, 14, 1.15, COLORS.trace2)
+        ];
       }
 
-      function noise(x, y, t){
-        // lightweight pseudo noise
-        const s = Math.sin(x * 0.012 + t) + Math.cos(y * 0.014 - t * 0.9);
-        const c = Math.cos(x * 0.008 - t * 0.7) - Math.sin(y * 0.010 + t * 1.1);
-        return s * 0.6 + c * 0.4;
-      }
+      function drawGrid(){
+        const step = state.dense ? 46 : 56;
+        ctx.globalCompositeOperation = "source-over";
+        ctx.lineWidth = 1;
 
-      function fieldAngle(x, y, t){
-        const n = noise(x, y, t);
-        const n2 = noise(x + 120.5, y - 80.2, t * 0.92);
-        return (n + n2) * Math.PI * 0.55 * state.field.curl;
+        // vertical
+        ctx.strokeStyle = COLORS.grid;
+        ctx.beginPath();
+        for (let x = 0; x <= state.w; x += step){
+          ctx.moveTo(x + 0.5, 0);
+          ctx.lineTo(x + 0.5, state.h);
+        }
+        ctx.stroke();
+
+        // horizontal
+        ctx.beginPath();
+        for (let y = 0; y <= state.h; y += step){
+          ctx.moveTo(0, y + 0.5);
+          ctx.lineTo(state.w, y + 0.5);
+        }
+        ctx.stroke();
+
+        // axis hint lines near bottom (dashboard vibe)
+        ctx.strokeStyle = COLORS.axis;
+        ctx.beginPath();
+        const axY = state.h * 0.88;
+        ctx.moveTo(state.w * 0.10, axY);
+        ctx.lineTo(state.w * 0.90, axY);
+        ctx.moveTo(state.w * 0.10, state.h * 0.62);
+        ctx.lineTo(state.w * 0.10, axY);
+        ctx.stroke();
       }
 
       function fade(){
         ctx.globalCompositeOperation = "source-over";
-        ctx.fillStyle = "rgba(5, 7, 15, 0.08)";
+        ctx.fillStyle = "rgba(7, 10, 18, 0.14)";
         ctx.fillRect(0, 0, state.w, state.h);
       }
 
-      function glow(){
-        ctx.globalCompositeOperation = "lighter";
-        const g = ctx.createRadialGradient(
-          state.pointer.x, state.pointer.y, 0,
-          state.pointer.x, state.pointer.y, 260
-        );
-        g.addColorStop(0, "rgba(255, 122, 24, 0.10)");
-        g.addColorStop(0.5, "rgba(255, 77, 157, 0.06)");
-        g.addColorStop(1, "rgba(255, 255, 255, 0.00)");
-        ctx.fillStyle = g;
-        ctx.fillRect(0, 0, state.w, state.h);
+      function updateNodes(){
+        const pad = 18;
+        for (const n of state.nodes){
+          // subtle mouse influence
+          let mx = 0, my = 0;
+          if (state.mouse.active){
+            const dx = n.x - state.mouse.x;
+            const dy = n.y - state.mouse.y;
+            const d2 = dx*dx + dy*dy;
+            const f = 1 / clamp(d2 / 28000, 1, 18);
+            mx = (-dy * 0.0009) * f + state.mouse.vx * 0.004 * f;
+            my = ( dx * 0.0009) * f + state.mouse.vy * 0.004 * f;
+          }
+
+          n.vx = (n.vx * 0.98) + mx;
+          n.vy = (n.vy * 0.98) + my;
+
+          n.x += n.vx;
+          n.y += n.vy;
+
+          // gentle drift back in bounds
+          if (n.x < -pad) n.x = state.w + pad;
+          if (n.x > state.w + pad) n.x = -pad;
+          if (n.y < -pad) n.y = state.h + pad;
+          if (n.y > state.h + pad) n.y = -pad;
+        }
       }
 
-      function drawParticle(p){
-        const alpha = p.a * (1 - p.age / p.life);
-        if (alpha <= 0) return;
+      function drawLinksAndNodes(){
+        const maxDist = state.dense ? 150 : 170;
+        const maxDist2 = maxDist * maxDist;
 
         ctx.globalCompositeOperation = "lighter";
-        ctx.lineWidth = p.size;
-        ctx.lineCap = "round";
-        ctx.strokeStyle = `rgba(${p.col.r}, ${p.col.g}, ${p.col.b}, ${alpha})`;
+        ctx.lineWidth = 1;
 
-        ctx.beginPath();
-        ctx.moveTo(p.px, p.py);
-        ctx.lineTo(p.x, p.y);
-        ctx.stroke();
+        // links
+        for (let i = 0; i < state.nodes.length; i++){
+          const a = state.nodes[i];
+          for (let j = i + 1; j < state.nodes.length; j++){
+            const b = state.nodes[j];
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+            const d2 = dx*dx + dy*dy;
+            if (d2 > maxDist2) continue;
 
-        ctx.globalCompositeOperation = "screen";
-        ctx.fillStyle = `rgba(${p.col.r}, ${p.col.g}, ${p.col.b}, ${alpha * 0.9})`;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size * 0.9, 0, Math.PI * 2);
-        ctx.fill();
-      }
+            const t = 1 - (d2 / maxDist2);
+            const alpha = 0.10 + 0.20 * t;
+            ctx.strokeStyle = `rgba(89,193,255,${alpha.toFixed(3)})`;
 
-      function updateParticle(p, t){
-        p.px = p.x;
-        p.py = p.y;
-
-        const angle = fieldAngle(p.x, p.y, t);
-        const fx = Math.cos(angle) * 0.55;
-        const fy = Math.sin(angle) * 0.55;
-
-        // pointer influence
-        let mx = 0, my = 0;
-        if (state.pointer.active){
-          const dx = p.x - state.pointer.x;
-          const dy = p.y - state.pointer.y;
-          const dist2 = dx*dx + dy*dy;
-          const influence = 1 / clamp(dist2 / 18000, 1, 24);
-
-          mx = (-dy * 0.0016) * influence + state.pointer.vx * 0.02 * influence;
-          my = ( dx * 0.0016) * influence + state.pointer.vy * 0.02 * influence;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
         }
 
-        const speedMul = (state.boost ? 1.35 : 1.0) * state.field.speed;
+        // nodes
+        for (const n of state.nodes){
+          const col = n.c === 0 ? COLORS.node : COLORS.node2;
+          ctx.fillStyle = col;
+          ctx.globalAlpha = n.a;
 
-        p.vx = (p.vx * 0.90) + (fx + mx) * 0.75;
-        p.vy = (p.vy * 0.90) + (fy + my) * 0.75;
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+      }
 
-        p.x += p.vx * p.speed * 2.0 * speedMul;
-        p.y += p.vy * p.speed * 2.0 * speedMul;
+      function drawTraces(t){
+        const left = state.w * 0.10;
+        const right = state.w * 0.90;
+        const width = right - left;
 
-        p.age += 1;
+        for (const tr of state.traces){
+          const points = 80;
+          ctx.globalCompositeOperation = "screen";
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = tr.col;
 
-        // respawn
-        const pad = 40;
-        if (p.age > p.life || p.x < -pad || p.x > state.w + pad || p.y < -pad || p.y > state.h + pad){
-          const np = createParticle();
-          p.x = np.x; p.y = np.y; p.px = np.x; p.py = np.y;
-          p.vx = np.vx; p.vy = np.vy;
-          p.a = np.a; p.size = np.size; p.speed = np.speed;
-          p.col = np.col; p.life = np.life; p.age = 0;
+          ctx.beginPath();
+          for (let i = 0; i < points; i++){
+            const x = left + (i / (points - 1)) * width;
+            const wobble = Math.sin((i * 0.28) + tr.phase + t * tr.speed) * tr.amp;
+            const slow = Math.sin((i * 0.09) + tr.phase * 0.7 - t * tr.speed * 0.65) * (tr.amp * 0.45);
+            const y = tr.yBase + wobble + slow;
+
+            if (i === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+          }
+          ctx.stroke();
+
+          // subtle last point marker
+          const lastX = right;
+          const wobble2 = Math.sin(((points - 1) * 0.28) + tr.phase + t * tr.speed) * tr.amp;
+          const slow2 = Math.sin(((points - 1) * 0.09) + tr.phase * 0.7 - t * tr.speed * 0.65) * (tr.amp * 0.45);
+          const lastY = tr.yBase + wobble2 + slow2;
+
+          ctx.fillStyle = "rgba(255,255,255,0.12)";
+          ctx.beginPath();
+          ctx.arc(lastX, lastY, 4.2, 0, Math.PI * 2);
+          ctx.fill();
         }
       }
 
       function tick(){
-        if (!state.running) return;
+        if (!state.on) return;
 
-        state.t += 0.0105;
+        state.t += 0.010;
         const t = state.t;
 
         fade();
 
-        // subtle sparkle
-        if (Math.random() < (state.boost ? 0.22 : 0.12)){
-          ctx.globalCompositeOperation = "screen";
-          ctx.fillStyle = "rgba(255,255,255,0.05)";
-          const x = rand(0, state.w), y = rand(0, state.h);
-          ctx.beginPath();
-          ctx.arc(x, y, rand(0.6, 1.4), 0, Math.PI * 2);
-          ctx.fill();
+        // grid rarely (so it does not flicker)
+        if (Math.floor(t * 60) % 12 === 0){
+          drawGrid();
         }
 
-        for (let i = 0; i < state.particles.length; i++){
-          const p = state.particles[i];
-          updateParticle(p, t);
-          drawParticle(p);
-        }
+        updateNodes();
+        drawLinksAndNodes();
+        drawTraces(t);
 
-        glow();
         requestAnimationFrame(tick);
       }
 
-      function setRunning(next){
-        state.running = next && !reduceMotion;
-        uiMode.textContent = state.running ? "Cosmic flow" : "Off";
-
-        if (state.running){
+      function setOn(next){
+        state.on = next && !reduceMotion;
+        if (state.on){
           ctx.clearRect(0, 0, state.w, state.h);
-          initParticles();
+          drawGrid();
           tick();
         } else {
           ctx.clearRect(0, 0, state.w, state.h);
         }
       }
 
-      function setBoost(next){
-        state.boost = next;
-        btnBoost.textContent = state.boost ? "Normal" : "Boost";
-        initParticles();
+      function setDense(next){
+        state.dense = next;
+        btnDensity.textContent = state.dense ? "Less detail" : "More detail";
+        makeNodes();
+        makeTraces();
+        if (state.on){
+          ctx.clearRect(0, 0, state.w, state.h);
+          drawGrid();
+        }
       }
 
       function onPointerMove(e){
         const x = e.clientX;
         const y = e.clientY;
 
-        state.pointer.vx = (x - state.pointer.x);
-        state.pointer.vy = (y - state.pointer.y);
+        state.mouse.vx = clamp(x - state.mouse.x, -40, 40);
+        state.mouse.vy = clamp(y - state.mouse.y, -40, 40);
 
-        state.pointer.x = x;
-        state.pointer.y = y;
-        state.pointer.active = true;
-
-        state.pointer.vx = clamp(state.pointer.vx, -40, 40);
-        state.pointer.vy = clamp(state.pointer.vy, -40, 40);
+        state.mouse.x = x;
+        state.mouse.y = y;
+        state.mouse.active = true;
       }
 
       function onPointerLeave(){
-        state.pointer.active = false;
-        state.pointer.vx = 0;
-        state.pointer.vy = 0;
+        state.mouse.active = false;
+        state.mouse.vx = 0;
+        state.mouse.vy = 0;
       }
 
       // Smooth anchor scroll
@@ -1033,35 +1033,33 @@
         history.pushState(null, "", id);
       });
 
-      // UI buttons
-      btnToggle.addEventListener("click", () => setRunning(!state.running));
-      btnBoost.addEventListener("click", () => setBoost(!state.boost));
+      btnToggle.addEventListener("click", () => setOn(!state.on));
+      btnDensity.addEventListener("click", () => setDense(!state.dense));
 
-      // Year
       document.getElementById("y").textContent = new Date().getFullYear();
 
-      // setup
       resize();
-      initParticles();
+      makeNodes();
+      makeTraces();
 
-      // default pointer pos for glow
-      state.pointer.x = Math.round(state.w * 0.55);
-      state.pointer.y = Math.round(state.h * 0.28);
+      state.mouse.x = state.w * 0.55;
+      state.mouse.y = state.h * 0.25;
 
       window.addEventListener("resize", () => {
         resize();
-        initParticles();
+        makeNodes();
+        makeTraces();
+        if (state.on){
+          ctx.clearRect(0, 0, state.w, state.h);
+          drawGrid();
+        }
       });
 
-      window.addEventListener("pointermove", onPointerMove, { passive: true });
-      window.addEventListener("pointerdown", onPointerMove, { passive: true });
+      window.addEventListener("pointermove", onPointerMove, { passive:true });
+      window.addEventListener("pointerdown", onPointerMove, { passive:true });
       window.addEventListener("pointerleave", onPointerLeave);
 
-      setRunning(true);
-
-      if (reduceMotion){
-        uiMode.textContent = "Reduced motion";
-      }
+      setOn(true);
     })();
   </script>
 </body>
