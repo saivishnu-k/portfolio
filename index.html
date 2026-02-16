@@ -373,6 +373,16 @@
       .grid{ grid-template-columns: 1fr; }
       h1{ font-size: 34px; }
     }
+
+    .panel:before{
+    content:"";
+    position:absolute;
+    inset: -2px;
+    background: radial-gradient(600px 240px at 20% 10%, rgba(249,115,22,0.16), transparent 55%),
+                radial-gradient(520px 240px at 85% 20%, rgba(251,146,60,0.10), transparent 55%);
+    pointer-events:none;
+    opacity: 0.9;
+  }
   </style>
 </head>
 
