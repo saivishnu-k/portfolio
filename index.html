@@ -474,7 +474,6 @@
       transform: translateY(-1px);
     }
 
-    /* Disabled link style for projects not yet published */
     .links .linkDisabled{
       opacity: 0.55;
       cursor: not-allowed;
@@ -516,3 +515,484 @@
           <span>Cork, Ireland</span>
         </div>
       </div>
+
+      <nav aria-label="Primary">
+        <a class="navlink" href="#projects">Projects</a>
+        <a class="navlink" href="#skills">Skills</a>
+        <a class="navlink" href="#certs">Certifications</a>
+        <a class="navlink" href="#contact">Contact</a>
+      </nav>
+    </div>
+
+    <div class="hero">
+      <div class="panel">
+        <div class="kicker"><span class="kdot"></span> Data and analytics portfolio</div>
+        <h1>Analytics that tells a clear story.</h1>
+        <p class="sub">
+          MSc Business Analytics graduate with hands on experience in Python, SQL, Tableau, and Excel.
+          I build dashboards, models, and decision ready insights for marketing performance, customer behaviour, and sustainability focused work.
+        </p>
+
+        <div class="chips" aria-label="Key tools">
+          <div class="chip accent">Python</div>
+          <div class="chip">SQL</div>
+          <div class="chip">Tableau</div>
+          <div class="chip">Excel</div>
+          <div class="chip">Streamlit</div>
+          <div class="chip">R</div>
+        </div>
+
+        <div class="cta" id="contact">
+          <a class="btn primary" href="mailto:saivishnu.kan@gmail.com">Email</a>
+          <a class="btn" href="https://www.linkedin.com/in/sai-kandagattla/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="https://github.com/saivishnu-k" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="#projects">View projects</a>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="mini">
+          <h3>What this site is</h3>
+          <p>Short, business first project summaries with links to code and dashboards. Clean visuals. Fast to scan.</p>
+
+          <div class="statRow" aria-label="At a glance">
+            <div class="stat">
+              <strong>Focus</strong>
+              <span>Decision ready insights</span>
+            </div>
+            <div class="stat">
+              <strong>Strength</strong>
+              <span>Dashboards and modelling</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mini">
+          <h3>Background</h3>
+          <p>The animated backdrop is a subtle data network plus time series traces. It reacts to your cursor and stays lightweight.</p>
+
+          <div class="cta" style="margin-top:12px">
+            <button class="btn" id="toggleBg" type="button">Toggle background</button>
+            <button class="btn" id="density" type="button">More detail</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" id="projects">
+      <h2>Featured projects</h2>
+
+      <div class="grid">
+
+        <article class="card">
+          <h3>Coral Bleaching Prediction Dashboard</h3>
+          <p>Early warning system using 50,000 plus climate and ocean records to predict coral bleaching risk and support conservation prioritisation.</p>
+          <div class="meta">
+            <span class="pill cyan">Python</span>
+            <span class="pill">Streamlit</span>
+            <span class="pill green">Machine Learning</span>
+          </div>
+          <div class="links">
+            <a href="https://github.com/saivishnu-k/coral-bleaching-dashboard" target="_blank" rel="noreferrer">Repository</a>
+            <a href="https://reef-dashboard.streamlit.app/" target="_blank" rel="noreferrer">Live demo</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Time Series Forecasting of Exchange Rate and PPP</h3>
+          <p>Built ARIMA models in R to forecast exchange rates from 2014 to 2024 and test Purchasing Power Parity with practical evaluation.</p>
+          <div class="meta">
+            <span class="pill">R</span>
+            <span class="pill">ARIMA</span>
+            <span class="pill">Econometrics</span>
+          </div>
+          <div class="links">
+            <a href="https://github.com/saivishnu-k/exchange-rate-ppp-forecasting/blob/main/README.md" target="_blank" rel="noreferrer">Repository</a>
+            <a href="https://github.com/saivishnu-k/exchange-rate-ppp-forecasting/blob/main/analysis.R" target="_blank" rel="noreferrer">Notebook</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Supply Chain Optimisation Model</h3>
+          <p>Multi objective optimisation model to reduce costs and emissions while improving service levels across a global network.</p>
+          <div class="meta">
+            <span class="pill cyan">Python</span>
+            <span class="pill">MILP</span>
+            <span class="pill">Optimisation</span>
+          </div>
+          <div class="links">
+            <a href="https://github.com/saivishnu-k/supply-chain-optimisation-milp/blob/main/README.md" target="_blank" rel="noreferrer">Repository</a>
+            <a href="https://github.com/saivishnu-k/supply-chain-optimisation-milp/blob/main/analysis.py" target="_blank" rel="noreferrer">Notebook</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>UK Bank Customer Segmentation Dashboard</h3>
+          <p>Interactive Tableau dashboard exploring customer demographics and behaviour patterns with segmentation for quick comparison and insight.</p>
+          <div class="meta">
+            <span class="pill">Tableau</span>
+            <span class="pill">Segmentation</span>
+            <span class="pill">BI</span>
+          </div>
+          <div class="links">
+            <a href="https://public.tableau.com/app/profile/sai.vishnu.kandagattla/viz/BankCustomerAnalysisGuidedProject/CustomerAnalysis" target="_blank" rel="noreferrer">
+              Dashboard
+            </a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Dublin Housing Price Prediction</h3>
+          <p>Predictive analytics on Dublin house prices using regression and classification models with structured EDA and preprocessing.</p>
+          <div class="meta">
+            <span class="pill cyan">Python</span>
+            <span class="pill">Machine Learning</span>
+            <span class="pill green">Prediction</span>
+          </div>
+          <div class="links">
+            <a href="https://github.com/saivishnu-k/dublin-housing-price-prediction/blob/main/README.md" target="_blank" rel="noreferrer">Repository</a>
+            <a href="https://github.com/saivishnu-k/dublin-housing-price-prediction/blob/main/analysis.py" target="_blank" rel="noreferrer">Notebook</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Power BI Sales Analysis</h3>
+          <p>Upcoming Power BI dashboard.</p>
+          <div class="meta">
+            <span class="pill">Power BI</span>
+          </div>
+          <div class="links">
+            <span class="linkDisabled" aria-disabled="true" title="Add your Power BI link when ready">Upcoming</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <h2>Skills</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Analysis</h3>
+          <p>Data cleaning, validation, EDA, time series basics, variance analysis, and stakeholder reporting.</p>
+          <div class="meta">
+            <span class="pill">EDA</span>
+            <span class="pill">KPI tracking</span>
+            <span class="pill">Quality checks</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Tools</h3>
+          <p>Python, SQL, Tableau, Excel, Power Query, Streamlit, and dashboard delivery for teams.</p>
+          <div class="meta">
+            <span class="pill cyan">Python</span>
+            <span class="pill">SQL</span>
+            <span class="pill">Tableau</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Business focus</h3>
+          <p>Marketing performance, customer behaviour, revenue analysis, sustainability analytics, and clear storytelling.</p>
+          <div class="meta">
+            <span class="pill">Marketing</span>
+            <span class="pill">Customer</span>
+            <span class="pill">Sustainability</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="certs">
+      <h2>Certifications</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Tableau Intermediate</h3>
+          <p>Interactive dashboards for trend identification and performance monitoring.</p>
+          <div class="meta"><span class="pill">Tableau</span></div>
+        </article>
+
+        <article class="card">
+          <h3>SQL Certification</h3>
+          <p>Querying for reporting and analysis using joins and advanced query patterns.</p>
+          <div class="meta"><span class="pill">SQL</span></div>
+        </article>
+
+        <article class="card">
+          <h3>Advanced Excel</h3>
+          <p>Data cleaning, analysis, visualisation, and automated reporting workflows.</p>
+          <div class="meta"><span class="pill">Excel</span><span class="pill">Power Query</span></div>
+        </article>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div>© <span id="y"></span> Sai Kandagattla</div>
+      <div>Hosted on GitHub Pages</div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      const canvas = document.getElementById("bg");
+      const ctx = canvas.getContext("2d", { alpha: true, desynchronized: true });
+
+      const btnToggle = document.getElementById("toggleBg");
+      const btnDensity = document.getElementById("density");
+
+      const state = {
+        w: 0,
+        h: 0,
+        dpr: Math.min(window.devicePixelRatio || 1, 2),
+        on: !reduceMotion,
+        dense: false,
+        t: 0,
+        nodes: [],
+        traces: []
+      };
+
+      function rand(min, max){ return min + Math.random() * (max - min); }
+
+      const COLORS = {
+        grid: "rgba(255,255,255,0.05)",
+        axis: "rgba(255,255,255,0.07)",
+        node: "rgba(89,193,255,0.75)",
+        node2: "rgba(124,255,178,0.65)",
+        trace: "rgba(255,184,107,0.18)",
+        trace2: "rgba(124,255,178,0.14)"
+      };
+
+      function resize(){
+        state.w = Math.max(1, window.innerWidth);
+        state.h = Math.max(1, window.innerHeight);
+        canvas.style.width = state.w + "px";
+        canvas.style.height = state.h + "px";
+        canvas.width = Math.floor(state.w * state.dpr);
+        canvas.height = Math.floor(state.h * state.dpr);
+        ctx.setTransform(state.dpr, 0, 0, state.dpr, 0, 0);
+      }
+
+      function makeNodes(){
+        const base = Math.max(28, Math.min(90, Math.round((state.w * state.h) / 52000)));
+        const count = state.dense ? Math.round(base * 1.7) : base;
+
+        state.nodes = [];
+        for (let i = 0; i < count; i++){
+          state.nodes.push({
+            x: rand(0, state.w),
+            y: rand(0, state.h),
+            vx: rand(-0.25, 0.25),
+            vy: rand(-0.25, 0.25),
+            r: rand(1.0, 2.2),
+            a: rand(0.25, 0.75),
+            c: Math.random() < 0.78 ? 0 : 1
+          });
+        }
+      }
+
+      function makeTraces(){
+        const makeOne = (yBase, amp, speed, col) => ({
+          yBase, amp, speed, col,
+          phase: rand(0, Math.PI * 2)
+        });
+
+        state.traces = [
+          makeOne(state.h * 0.78, 22, 0.9, COLORS.trace),
+          makeOne(state.h * 0.84, 14, 1.15, COLORS.trace2)
+        ];
+      }
+
+      function drawGrid(){
+        const step = state.dense ? 46 : 56;
+        ctx.globalCompositeOperation = "source-over";
+        ctx.lineWidth = 1;
+
+        ctx.strokeStyle = COLORS.grid;
+        ctx.beginPath();
+        for (let x = 0; x <= state.w; x += step){
+          ctx.moveTo(x + 0.5, 0);
+          ctx.lineTo(x + 0.5, state.h);
+        }
+        ctx.stroke();
+
+        ctx.beginPath();
+        for (let y = 0; y <= state.h; y += step){
+          ctx.moveTo(0, y + 0.5);
+          ctx.lineTo(state.w, y + 0.5);
+        }
+        ctx.stroke();
+
+        ctx.strokeStyle = COLORS.axis;
+        ctx.beginPath();
+        const axY = state.h * 0.88;
+        ctx.moveTo(state.w * 0.10, axY);
+        ctx.lineTo(state.w * 0.90, axY);
+        ctx.moveTo(state.w * 0.10, state.h * 0.62);
+        ctx.lineTo(state.w * 0.10, axY);
+        ctx.stroke();
+      }
+
+      function fade(){
+        ctx.globalCompositeOperation = "source-over";
+        ctx.fillStyle = "rgba(7, 10, 18, 0.14)";
+        ctx.fillRect(0, 0, state.w, state.h);
+      }
+
+      function updateNodes(){
+        const pad = 18;
+        for (const n of state.nodes){
+          n.x += n.vx;
+          n.y += n.vy;
+
+          if (n.x < -pad) n.x = state.w + pad;
+          if (n.x > state.w + pad) n.x = -pad;
+          if (n.y < -pad) n.y = state.h + pad;
+          if (n.y > state.h + pad) n.y = -pad;
+        }
+      }
+
+      function drawLinksAndNodes(){
+        const maxDist = state.dense ? 150 : 170;
+        const maxDist2 = maxDist * maxDist;
+
+        ctx.globalCompositeOperation = "lighter";
+        ctx.lineWidth = 1;
+
+        for (let i = 0; i < state.nodes.length; i++){
+          const a = state.nodes[i];
+          for (let j = i + 1; j < state.nodes.length; j++){
+            const b = state.nodes[j];
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+            const d2 = dx*dx + dy*dy;
+            if (d2 > maxDist2) continue;
+
+            const u = 1 - (d2 / maxDist2);
+            const alpha = 0.10 + 0.20 * u;
+            ctx.strokeStyle = "rgba(89,193,255," + alpha.toFixed(3) + ")";
+
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+
+        for (const n of state.nodes){
+          const col = n.c === 0 ? COLORS.node : COLORS.node2;
+          ctx.fillStyle = col;
+          ctx.globalAlpha = n.a;
+
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+      }
+
+      function drawTraces(t){
+        const left = state.w * 0.10;
+        const right = state.w * 0.90;
+        const width = right - left;
+
+        for (const tr of state.traces){
+          const points = 80;
+          ctx.globalCompositeOperation = "screen";
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = tr.col;
+
+          ctx.beginPath();
+          for (let i = 0; i < points; i++){
+            const x = left + (i / (points - 1)) * width;
+            const wobble = Math.sin((i * 0.28) + tr.phase + t * tr.speed) * tr.amp;
+            const slow = Math.sin((i * 0.09) + tr.phase * 0.7 - t * tr.speed * 0.65) * (tr.amp * 0.45);
+            const y = tr.yBase + wobble + slow;
+
+            if (i === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+          }
+          ctx.stroke();
+        }
+      }
+
+      function tick(){
+        if (!state.on) return;
+
+        state.t += 0.010;
+        const t = state.t;
+
+        fade();
+
+        if (Math.floor(t * 60) % 12 === 0){
+          drawGrid();
+        }
+
+        updateNodes();
+        drawLinksAndNodes();
+        drawTraces(t);
+
+        requestAnimationFrame(tick);
+      }
+
+      function setOn(next){
+        state.on = next && !reduceMotion;
+        if (state.on){
+          ctx.clearRect(0, 0, state.w, state.h);
+          drawGrid();
+          tick();
+        } else {
+          ctx.clearRect(0, 0, state.w, state.h);
+        }
+      }
+
+      function setDense(next){
+        state.dense = next;
+        btnDensity.textContent = state.dense ? "Less detail" : "More detail";
+        makeNodes();
+        makeTraces();
+        if (state.on){
+          ctx.clearRect(0, 0, state.w, state.h);
+          drawGrid();
+        }
+      }
+
+      document.addEventListener("click", (e) => {
+        const a = e.target.closest("a[href^='#']");
+        if (!a) return;
+        const id = a.getAttribute("href");
+        if (!id || id === "#") return;
+        const el = document.querySelector(id);
+        if (!el) return;
+
+        e.preventDefault();
+        el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+        history.pushState(null, "", id);
+      });
+
+      btnToggle.addEventListener("click", () => setOn(!state.on));
+      btnDensity.addEventListener("click", () => setDense(!state.dense));
+
+      document.getElementById("y").textContent = new Date().getFullYear();
+
+      resize();
+      makeNodes();
+      makeTraces();
+
+      window.addEventListener("resize", () => {
+        resize();
+        makeNodes();
+        makeTraces();
+        if (state.on){
+          ctx.clearRect(0, 0, state.w, state.h);
+          drawGrid();
+        }
+      });
+
+      setOn(true);
+    })();
+  </script>
+</body>
+</html>
