@@ -470,7 +470,7 @@
       transform: translateY(-1px);
     }
 
-    /* Disabled label for upcoming items */
+    /* Disabled placeholder so it does not redirect to your own page */
     .linkDisabled{
       font-size:12px;
       padding:8px 12px;
@@ -492,6 +492,18 @@
       text-align:center;
       font-size: 12px;
       color: rgba(255,255,255,0.62);
+    }
+
+    .sr-only{
+      position:absolute;
+      width:1px;
+      height:1px;
+      padding:0;
+      margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      border:0;
+      white-space:nowrap;
     }
 
     @media (max-width: 920px){
@@ -536,7 +548,7 @@
         <div class="kicker"><span class="kdot"></span> Data and analytics portfolio</div>
         <h1>Analytics that tells a clear story.</h1>
         <p class="sub">
-          MSc Business Analytics graduate with hands on experience in Python, SQL, Tableau, and Excel.
+          MSc Business Analytics graduate with hands on experience in Python, SQL, Tableau, Power BI, and Excel.
           I build dashboards, models, and decision ready insights for marketing performance, customer behaviour, and sustainability focused work.
         </p>
 
@@ -544,15 +556,15 @@
           <div class="chip accent">Python</div>
           <div class="chip">SQL</div>
           <div class="chip">Tableau</div>
+          <div class="chip">Power BI</div>
           <div class="chip">Excel</div>
           <div class="chip">Streamlit</div>
-          <div class="chip">R</div>
         </div>
 
         <div class="cta" id="contact">
           <a class="btn primary" href="mailto:saivishnu.kan@gmail.com">Email</a>
-          <a class="btn" href="https://www.linkedin.com/in/sai-kandagattla/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="btn" href="https://github.com/saivishnu-k" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/sai-kandagattla/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="btn" href="https://github.com/saivishnu-k" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a class="btn" href="#projects">View projects</a>
         </div>
       </div>
@@ -590,7 +602,6 @@
       <h2>Featured projects</h2>
 
       <div class="grid">
-
         <article class="card">
           <h3>Coral Bleaching Prediction Dashboard</h3>
           <p>Early warning system using 50,000 plus climate and ocean records to predict coral bleaching risk and support conservation prioritisation.</p>
@@ -600,8 +611,8 @@
             <span class="pill green">Machine Learning</span>
           </div>
           <div class="links">
-            <a href="https://github.com/saivishnu-k/coral-bleaching-dashboard" target="_blank" rel="noreferrer">Repository</a>
-            <a href="https://reef-dashboard.streamlit.app/" target="_blank" rel="noreferrer">Live demo</a>
+            <a href="https://github.com/saivishnu-k/coral-bleaching-dashboard" target="_blank" rel="noopener noreferrer">Repository</a>
+            <a href="https://reef-dashboard.streamlit.app/" target="_blank" rel="noopener noreferrer">Live demo</a>
           </div>
         </article>
 
@@ -614,22 +625,22 @@
             <span class="pill">Econometrics</span>
           </div>
           <div class="links">
-            <a href="https://github.com/saivishnu-k/exchange-rate-ppp-forecasting/blob/main/README.md" target="_blank" rel="noreferrer">Repository</a>
-            <a href="https://github.com/saivishnu-k/exchange-rate-ppp-forecasting/blob/main/analysis.R" target="_blank" rel="noreferrer">Notebook</a>
+            <a href="https://github.com/saivishnu-k/exchange-rate-ppp-forecasting/blob/main/README.md" target="_blank" rel="noopener noreferrer">Repository</a>
+            <a href="https://github.com/saivishnu-k/exchange-rate-ppp-forecasting/blob/main/analysis.R" target="_blank" rel="noopener noreferrer">Notebook</a>
           </div>
         </article>
 
         <article class="card">
           <h3>Supply Chain Optimisation Model</h3>
-          <p>Multi objective optimisation model to reduce costs and emissions while improving service levels across a global network.</p>
+          <p>Multi objective optimisation model to reduce costs and emissions while addressing a 31 percent capacity shortfall and improving service levels.</p>
           <div class="meta">
             <span class="pill cyan">Python</span>
             <span class="pill">MILP</span>
             <span class="pill">Optimisation</span>
           </div>
           <div class="links">
-            <a href="https://github.com/saivishnu-k/supply-chain-optimisation-milp/blob/main/README.md" target="_blank" rel="noreferrer">Repository</a>
-            <a href="https://github.com/saivishnu-k/supply-chain-optimisation-milp/blob/main/analysis.py" target="_blank" rel="noreferrer">Notebook</a>
+            <a href="https://github.com/saivishnu-k/supply-chain-optimisation-milp/blob/main/README.md" target="_blank" rel="noopener noreferrer">Repository</a>
+            <a href="https://github.com/saivishnu-k/supply-chain-optimisation-milp/blob/main/analysis.py" target="_blank" rel="noopener noreferrer">Notebook</a>
           </div>
         </article>
 
@@ -643,37 +654,38 @@
           </div>
           <div class="links">
             <a href="https://public.tableau.com/app/profile/sai.vishnu.kandagattla/viz/BankCustomerAnalysisGuidedProject/CustomerAnalysis"
-               target="_blank" rel="noreferrer">
-              Dashboard
-            </a>
+               target="_blank"
+               rel="noopener noreferrer">Dashboard</a>
           </div>
         </article>
 
         <article class="card">
-          <h3>Dublin Housing Price Prediction</h3>
-          <p>Predictive analytics on Dublin house prices using regression and classification models with structured EDA and preprocessing.</p>
+          <h3>Dublin Housing Price and Purchase Prediction</h3>
+          <p>Predictive modelling using 10,000 plus property records to analyse affordability drivers and purchase outcomes.</p>
           <div class="meta">
             <span class="pill cyan">Python</span>
-            <span class="pill">Machine Learning</span>
-            <span class="pill green">Prediction</span>
+            <span class="pill">Feature Engineering</span>
+            <span class="pill green">Machine Learning</span>
           </div>
           <div class="links">
-            <a href="https://github.com/saivishnu-k/dublin-housing-price-prediction/blob/main/README.md" target="_blank" rel="noreferrer">Repository</a>
-            <a href="https://github.com/saivishnu-k/dublin-housing-price-prediction/blob/main/analysis.py" target="_blank" rel="noreferrer">Notebook</a>
+            <a href="https://github.com/saivishnu-k/dublin-housing-price-prediction/blob/main/README.md" target="_blank" rel="noopener noreferrer">Repository</a>
+            <a href="https://github.com/saivishnu-k/dublin-housing-price-prediction/blob/main/analysis.py" target="_blank" rel="noopener noreferrer">Notebook</a>
           </div>
         </article>
 
         <article class="card">
-          <h3>Power BI Sales Analysis</h3>
-          <p>Upcoming Power BI dashboard.</p>
+          <h3>Power BI Sales Analysis Dashboard</h3>
+          <p>Upcoming Power BI dashboard focused on sales performance, customer trends, and decision ready KPIs for stakeholders.</p>
           <div class="meta">
             <span class="pill">Power BI</span>
+            <span class="pill">DAX</span>
+            <span class="pill">Dashboard</span>
           </div>
           <div class="links">
-            <span class="linkDisabled" aria-disabled="true" title="Add your Power BI link when ready">Upcoming</span>
+            <span class="linkDisabled" title="Upcoming">Upcoming</span>
+            <span class="linkDisabled" title="Upcoming">Upcoming</span>
           </div>
         </article>
-
       </div>
     </section>
 
@@ -692,11 +704,11 @@
 
         <article class="card">
           <h3>Tools</h3>
-          <p>Python, SQL, Tableau, Excel, Power Query, Streamlit, and dashboard delivery for teams.</p>
+          <p>Python, SQL, Tableau, Power BI, Excel, Power Query, and dashboard delivery for teams.</p>
           <div class="meta">
             <span class="pill cyan">Python</span>
             <span class="pill">SQL</span>
-            <span class="pill">Tableau</span>
+            <span class="pill">Excel</span>
           </div>
         </article>
 
@@ -769,6 +781,7 @@
       const COLORS = {
         grid: "rgba(255,255,255,0.05)",
         axis: "rgba(255,255,255,0.07)",
+        link: "rgba(89,193,255,0.14)",
         node: "rgba(89,193,255,0.75)",
         node2: "rgba(124,255,178,0.65)",
         trace: "rgba(255,184,107,0.18)",
@@ -786,14 +799,15 @@
       }
 
       function makeNodes(){
-        const base = Math.max(28, Math.min(90, Math.round((state.w * state.h) / 52000)));
+        const base = clamp(Math.round((state.w * state.h) / 52000), 28, 90);
         const count = state.dense ? Math.round(base * 1.7) : base;
 
         state.nodes = [];
         for (let i = 0; i < count; i++){
+          const x = rand(0, state.w);
+          const y = rand(0, state.h);
           state.nodes.push({
-            x: rand(0, state.w),
-            y: rand(0, state.h),
+            x, y,
             vx: rand(-0.25, 0.25),
             vy: rand(-0.25, 0.25),
             r: rand(1.0, 2.2),
@@ -854,6 +868,19 @@
       function updateNodes(){
         const pad = 18;
         for (const n of state.nodes){
+          let mx = 0, my = 0;
+          if (state.mouse.active){
+            const dx = n.x - state.mouse.x;
+            const dy = n.y - state.mouse.y;
+            const d2 = dx*dx + dy*dy;
+            const f = 1 / clamp(d2 / 28000, 1, 18);
+            mx = (-dy * 0.0009) * f + state.mouse.vx * 0.004 * f;
+            my = ( dx * 0.0009) * f + state.mouse.vy * 0.004 * f;
+          }
+
+          n.vx = (n.vx * 0.98) + mx;
+          n.vy = (n.vy * 0.98) + my;
+
           n.x += n.vx;
           n.y += n.vy;
 
@@ -972,6 +999,10 @@
       function onPointerMove(e){
         const x = e.clientX;
         const y = e.clientY;
+
+        state.mouse.vx = clamp(x - state.mouse.x, -40, 40);
+        state.mouse.vy = clamp(y - state.mouse.y, -40, 40);
+
         state.mouse.x = x;
         state.mouse.y = y;
         state.mouse.active = true;
@@ -979,6 +1010,8 @@
 
       function onPointerLeave(){
         state.mouse.active = false;
+        state.mouse.vx = 0;
+        state.mouse.vy = 0;
       }
 
       document.addEventListener("click", (e) => {
@@ -1002,6 +1035,9 @@
       resize();
       makeNodes();
       makeTraces();
+
+      state.mouse.x = state.w * 0.55;
+      state.mouse.y = state.h * 0.25;
 
       window.addEventListener("resize", () => {
         resize();
