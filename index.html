@@ -477,18 +477,6 @@
       color: rgba(255,255,255,0.62);
     }
 
-    .sr-only{
-      position:absolute;
-      width:1px;
-      height:1px;
-      padding:0;
-      margin:-1px;
-      overflow:hidden;
-      clip:rect(0,0,0,0);
-      border:0;
-      white-space:nowrap;
-    }
-
     @media (max-width: 920px){
       .hero{ grid-template-columns: 1fr; }
       nav{ justify-content:flex-start; }
@@ -531,7 +519,7 @@
         <div class="kicker"><span class="kdot"></span> Data and analytics portfolio</div>
         <h1>Analytics that tells a clear story.</h1>
         <p class="sub">
-          MSc Business Analytics graduate with hands on experience in Python, SQL, Tableau, Power BI, and Excel.
+          MSc Business Analytics graduate with hands on experience in Python, SQL, Tableau, and Excel.
           I build dashboards, models, and decision ready insights for marketing performance, customer behaviour, and sustainability focused work.
         </p>
 
@@ -539,15 +527,15 @@
           <div class="chip accent">Python</div>
           <div class="chip">SQL</div>
           <div class="chip">Tableau</div>
-          <div class="chip">Power BI</div>
           <div class="chip">Excel</div>
           <div class="chip">Streamlit</div>
+          <div class="chip">R</div>
         </div>
 
         <div class="cta" id="contact">
           <a class="btn primary" href="mailto:saivishnu.kan@gmail.com">Email</a>
-          <a class="btn" href="https://www.linkedin.com/in/sai-kandagattla/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a class="btn" href="https://github.com/saivishnu-k" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/sai-kandagattla/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="https://github.com/saivishnu-k" target="_blank" rel="noreferrer">GitHub</a>
           <a class="btn" href="#projects">View projects</a>
         </div>
       </div>
@@ -585,6 +573,7 @@
       <h2>Featured projects</h2>
 
       <div class="grid">
+
         <article class="card">
           <h3>Coral Bleaching Prediction Dashboard</h3>
           <p>Early warning system using 50,000 plus climate and ocean records to predict coral bleaching risk and support conservation prioritisation.</p>
@@ -594,8 +583,8 @@
             <span class="pill green">Machine Learning</span>
           </div>
           <div class="links">
-            <a href="https://github.com/saivishnu-k/coral-bleaching-dashboard" target="_blank" rel="noopener noreferrer">Repository</a>
-            <a href="https://reef-dashboard.streamlit.app/" target="_blank" rel="noopener noreferrer">Live demo</a>
+            <a href="https://github.com/saivishnu-k/coral-bleaching-dashboard" target="_blank" rel="noreferrer">Repository</a>
+            <a href="https://reef-dashboard.streamlit.app/" target="_blank" rel="noreferrer">Live demo</a>
           </div>
         </article>
 
@@ -608,22 +597,23 @@
             <span class="pill">Econometrics</span>
           </div>
           <div class="links">
-            <a href="#" title="Add your repository link">Repository</a>
-            <a href="#" title="Add your report or notebook link">Report</a>
+            <!-- Replace these two links after you create the repo -->
+            <a href="https://github.com/saivishnu-k/exchange-rate-ppp-forecasting" target="_blank" rel="noreferrer">Repository</a>
+            <a href="https://github.com/saivishnu-k/exchange-rate-ppp-forecasting/blob/main/REPORT.pdf" target="_blank" rel="noreferrer">Report</a>
           </div>
         </article>
 
         <article class="card">
           <h3>Supply Chain Optimisation Model</h3>
-          <p>Multi objective optimisation model to reduce costs and emissions while addressing a 31 percent capacity shortfall and improving service levels.</p>
+          <p>Multi objective optimisation model to reduce costs and emissions while improving service levels across a global network.</p>
           <div class="meta">
             <span class="pill cyan">Python</span>
             <span class="pill">MILP</span>
             <span class="pill">Optimisation</span>
           </div>
           <div class="links">
-            <a href="#" title="Add your repository link">Repository</a>
-            <a href="#" title="Add your report or notebook link">Model</a>
+            <!-- Replace this link after you create the repo -->
+            <a href="https://github.com/saivishnu-k/supply-chain-optimisation-model" target="_blank" rel="noreferrer">Repository</a>
           </div>
         </article>
 
@@ -637,38 +627,36 @@
           </div>
           <div class="links">
             <a href="https://public.tableau.com/app/profile/sai.vishnu.kandagattla/viz/BankCustomerAnalysisGuidedProject/CustomerAnalysis"
-               target="_blank"
-               rel="noopener noreferrer">Dashboard</a>
+               target="_blank" rel="noreferrer">
+              Dashboard
+            </a>
           </div>
         </article>
 
         <article class="card">
-          <h3>Dublin Housing Price and Purchase Prediction</h3>
-          <p>Predictive modelling using 10,000 plus property records to analyse affordability drivers and purchase outcomes.</p>
+          <h3>Dublin Housing Price Prediction</h3>
+          <p>Predictive analytics on Dublin house prices using regression and classification models with structured EDA and preprocessing.</p>
           <div class="meta">
             <span class="pill cyan">Python</span>
-            <span class="pill">Feature Engineering</span>
-            <span class="pill green">Machine Learning</span>
+            <span class="pill">Machine Learning</span>
+            <span class="pill green">Prediction</span>
           </div>
           <div class="links">
-            <a href="#" title="Add your repository link">Repository</a>
-            <a href="#" title="Add your notebook link">Notebook</a>
+            <a href="https://github.com/saivishnu-k/dublin-housing-price-prediction" target="_blank" rel="noreferrer">Repository</a>
           </div>
         </article>
 
         <article class="card">
-          <h3>Power BI Sales Analysis Dashboard</h3>
-          <p>Upcoming Power BI dashboard focused on sales performance, customer trends, and decision ready KPIs for stakeholders.</p>
+          <h3>Power BI Sales Analysis</h3>
+          <p>Not included for now.</p>
           <div class="meta">
             <span class="pill">Power BI</span>
-            <span class="pill">DAX</span>
-            <span class="pill">Dashboard</span>
           </div>
           <div class="links">
-            <a href="#" title="Add your dashboard link">Dashboard</a>
-            <a href="#" title="Add your repository link">Repository</a>
+            <a href="#projects" onclick="return false;" title="Not included">Not included</a>
           </div>
         </article>
+
       </div>
     </section>
 
@@ -687,11 +675,11 @@
 
         <article class="card">
           <h3>Tools</h3>
-          <p>Python, SQL, Tableau, Power BI, Excel, Power Query, and dashboard delivery for teams.</p>
+          <p>Python, SQL, Tableau, Excel, Power Query, Streamlit, and dashboard delivery for teams.</p>
           <div class="meta">
             <span class="pill cyan">Python</span>
             <span class="pill">SQL</span>
-            <span class="pill">Excel</span>
+            <span class="pill">Tableau</span>
           </div>
         </article>
 
@@ -764,7 +752,6 @@
       const COLORS = {
         grid: "rgba(255,255,255,0.05)",
         axis: "rgba(255,255,255,0.07)",
-        link: "rgba(89,193,255,0.14)",
         node: "rgba(89,193,255,0.75)",
         node2: "rgba(124,255,178,0.65)",
         trace: "rgba(255,184,107,0.18)",
@@ -782,15 +769,14 @@
       }
 
       function makeNodes(){
-        const base = clamp(Math.round((state.w * state.h) / 52000), 28, 90);
+        const base = Math.max(28, Math.min(90, Math.round((state.w * state.h) / 52000)));
         const count = state.dense ? Math.round(base * 1.7) : base;
 
         state.nodes = [];
         for (let i = 0; i < count; i++){
-          const x = rand(0, state.w);
-          const y = rand(0, state.h);
           state.nodes.push({
-            x, y,
+            x: rand(0, state.w),
+            y: rand(0, state.h),
             vx: rand(-0.25, 0.25),
             vy: rand(-0.25, 0.25),
             r: rand(1.0, 2.2),
@@ -851,19 +837,6 @@
       function updateNodes(){
         const pad = 18;
         for (const n of state.nodes){
-          let mx = 0, my = 0;
-          if (state.mouse.active){
-            const dx = n.x - state.mouse.x;
-            const dy = n.y - state.mouse.y;
-            const d2 = dx*dx + dy*dy;
-            const f = 1 / clamp(d2 / 28000, 1, 18);
-            mx = (-dy * 0.0009) * f + state.mouse.vx * 0.004 * f;
-            my = ( dx * 0.0009) * f + state.mouse.vy * 0.004 * f;
-          }
-
-          n.vx = (n.vx * 0.98) + mx;
-          n.vy = (n.vy * 0.98) + my;
-
           n.x += n.vx;
           n.y += n.vy;
 
@@ -927,4 +900,108 @@
           ctx.beginPath();
           for (let i = 0; i < points; i++){
             const x = left + (i / (points - 1)) * width;
-            const wobble = Math.
+            const wobble = Math.sin((i * 0.28) + tr.phase + t * tr.speed) * tr.amp;
+            const slow = Math.sin((i * 0.09) + tr.phase * 0.7 - t * tr.speed * 0.65) * (tr.amp * 0.45);
+            const y = tr.yBase + wobble + slow;
+
+            if (i === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+          }
+          ctx.stroke();
+        }
+      }
+
+      function tick(){
+        if (!state.on) return;
+
+        state.t += 0.010;
+        const t = state.t;
+
+        fade();
+
+        if (Math.floor(t * 60) % 12 === 0){
+          drawGrid();
+        }
+
+        updateNodes();
+        drawLinksAndNodes();
+        drawTraces(t);
+
+        requestAnimationFrame(tick);
+      }
+
+      function setOn(next){
+        state.on = next && !reduceMotion;
+        if (state.on){
+          ctx.clearRect(0, 0, state.w, state.h);
+          drawGrid();
+          tick();
+        } else {
+          ctx.clearRect(0, 0, state.w, state.h);
+        }
+      }
+
+      function setDense(next){
+        state.dense = next;
+        btnDensity.textContent = state.dense ? "Less detail" : "More detail";
+        makeNodes();
+        makeTraces();
+        if (state.on){
+          ctx.clearRect(0, 0, state.w, state.h);
+          drawGrid();
+        }
+      }
+
+      function onPointerMove(e){
+        const x = e.clientX;
+        const y = e.clientY;
+        state.mouse.x = x;
+        state.mouse.y = y;
+        state.mouse.active = true;
+      }
+
+      function onPointerLeave(){
+        state.mouse.active = false;
+      }
+
+      document.addEventListener("click", (e) => {
+        const a = e.target.closest("a[href^='#']");
+        if (!a) return;
+        const id = a.getAttribute("href");
+        if (!id || id === "#") return;
+        const el = document.querySelector(id);
+        if (!el) return;
+
+        e.preventDefault();
+        el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+        history.pushState(null, "", id);
+      });
+
+      btnToggle.addEventListener("click", () => setOn(!state.on));
+      btnDensity.addEventListener("click", () => setDense(!state.dense));
+
+      document.getElementById("y").textContent = new Date().getFullYear();
+
+      resize();
+      makeNodes();
+      makeTraces();
+
+      window.addEventListener("resize", () => {
+        resize();
+        makeNodes();
+        makeTraces();
+        if (state.on){
+          ctx.clearRect(0, 0, state.w, state.h);
+          drawGrid();
+        }
+      });
+
+      window.addEventListener("pointermove", onPointerMove, { passive:true });
+      window.addEventListener("pointerdown", onPointerMove, { passive:true });
+      window.addEventListener("pointerleave", onPointerLeave);
+
+      setOn(true);
+    })();
+  </script>
+</body>
+</html>
